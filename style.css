@@ -338,3 +338,12 @@ footer{padding-block:20px}
   .intro-destination>.site-header{background:transparent}
 }
 @media(prefers-reduced-motion:reduce){.ambient-scene .ambient-blob{animation:none!important}.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{will-change:auto}}
+/* Group the expanded toolbox so its skills remain quick to scan. */
+.skills-list{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.skill-group{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;min-width:0}
+.skill-category{font-family:var(--font-body);font-size:10px;line-height:1.5;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
+.skill-group-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.skills-list .skill-chip{max-width:100%;white-space:normal;line-height:1.5;text-align:left}
+.skill-feature-name{overflow-wrap:anywhere}
+.skill-feature-name:empty{display:none}
+.skill-feature-name{font-size:clamp(16px,1.6vw,20px)}

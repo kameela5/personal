@@ -1263,7 +1263,7 @@
 </style>
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=smooth-14">
+<link rel="stylesheet" href="style.css?v=toolbox-15">
 </head>
 <body id="top">
 <!-- Ambient lava-glass scene -->
@@ -1337,9 +1337,9 @@
 <div class="projects-grid">
 <article class="project-card" tabindex="0" aria-labelledby="work-card-1-title">
 <h3 id="work-card-1-title">Rooted</h3>
-<div class="project-meta"><span class="tag">AI / NLP</span><span class="tag">Python</span><span class="tag">Hugging Face</span></div>
-<p>AI career-path matching for newcomers across <strong>516 Canadian occupations</strong>.</p>
-<div class="project-foot">Sentence Transformers · Llama 3.1</div>
+<div class="project-meta"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Semantic matching</span></div>
+<p>Matches newcomers’ skills to <strong>516 Canadian occupations</strong> using semantic matching and Sentence Transformers. Uses RAG for career-path recommendations.</p>
+<div class="project-foot">Hugging Face · Sentence Transformers · Llama 3.1</div>
 </article>
 <article class="project-card" tabindex="0" aria-labelledby="work-card-2-title">
 <h3 id="work-card-2-title">NurseSwap</h3>
@@ -1384,7 +1384,7 @@
 
 <h3 id="work-card-5-title">AI/ML Developer</h3>
 <p class="journey-company">AI4Good Lab · Mila &amp; Amii</p>
-<p class="journey-description">Built Rooted using semantic search and Llama 3.1 to match skills with career paths.</p>
+<p class="journey-description">Built Rooted with RAG, Sentence Transformers, and semantic matching for career recommendations.</p>
 </article>
 </li>
 <li class="journey-stop">
@@ -1417,7 +1417,41 @@
 <span class="skill-feature-name" id="skill-feature-name">Python</span>
 <span class="skill-feature-hint">featured skill</span>
 </div>
-<div aria-label="Skills you can select" class="skills-list"><button aria-pressed="true" class="skill-chip is-active" data-skill="Python" type="button">Python</button><button aria-pressed="false" class="skill-chip" data-skill="Java" type="button">Java</button><button aria-pressed="false" class="skill-chip" data-skill="C++" type="button">C++</button><button aria-pressed="false" class="skill-chip" data-skill="SQL" type="button">SQL</button><button aria-pressed="false" class="skill-chip" data-skill="NumPy" type="button">NumPy</button><button aria-pressed="false" class="skill-chip" data-skill="Pandas" type="button">Pandas</button><button aria-pressed="false" class="skill-chip" data-skill="Flutter" type="button">Flutter</button><button aria-pressed="false" class="skill-chip" data-skill="Firebase" type="button">Firebase</button><button aria-pressed="false" class="skill-chip" data-skill="Machine Learning" type="button">Machine Learning</button><button aria-pressed="false" class="skill-chip" data-skill="NLP" type="button">NLP</button><button aria-pressed="false" class="skill-chip" data-skill="Hugging Face" type="button">Hugging Face</button><button aria-pressed="false" class="skill-chip" data-skill="Ansible" type="button">Ansible</button><button aria-pressed="false" class="skill-chip" data-skill="Linux" type="button">Linux</button><button aria-pressed="false" class="skill-chip" data-skill="Git" type="button">Git</button><button aria-pressed="false" class="skill-chip" data-skill="Microsoft Sentinel" type="button">Microsoft Sentinel</button><button aria-pressed="false" class="skill-chip" data-skill="Azure" type="button">Azure</button></div>
+<div aria-label="Skills you can select" class="skills-list">
+<div class="skill-group"><h3 class="skill-category">Languages</h3><div class="skill-group-chips">
+<button aria-pressed="true" class="skill-chip is-active" data-skill="Python" type="button">Python</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Java" type="button">Java</button>
+<button aria-pressed="false" class="skill-chip" data-skill="C++" type="button">C++</button>
+<button aria-pressed="false" class="skill-chip" data-skill="SQL" type="button">SQL</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Haskell" type="button">Haskell</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Rust" type="button">Rust</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Clojure" type="button">Clojure</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Erlang" type="button">Erlang</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Prolog" type="button">Prolog</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Lisp" type="button">Lisp</button>
+</div></div>
+<div class="skill-group"><h3 class="skill-category">AI &amp; data</h3><div class="skill-group-chips">
+<button aria-pressed="false" class="skill-chip" data-skill="Machine Learning" type="button">Machine Learning</button>
+<button aria-pressed="false" class="skill-chip" data-skill="NLP" type="button">NLP</button>
+<button aria-pressed="false" class="skill-chip" data-skill="RAG" type="button">RAG</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Semantic Matching" type="button">Semantic Matching</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Semantic Search" type="button">Semantic Search</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Sentence Transformers" type="button">Sentence Transformers</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Hugging Face" type="button">Hugging Face</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Llama 3.1" type="button">Llama 3.1</button>
+<button aria-pressed="false" class="skill-chip" data-skill="NumPy" type="button">NumPy</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Pandas" type="button">Pandas</button>
+</div></div>
+<div class="skill-group"><h3 class="skill-category">Tools &amp; platforms</h3><div class="skill-group-chips">
+<button aria-pressed="false" class="skill-chip" data-skill="Flutter" type="button">Flutter</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Firebase" type="button">Firebase</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Linux" type="button">Linux</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Git" type="button">Git</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Ansible" type="button">Ansible</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Microsoft Azure" type="button">Microsoft Azure</button>
+<button aria-pressed="false" class="skill-chip" data-skill="Microsoft Sentinel" type="button">Microsoft Sentinel</button>
+</div></div>
+</div>
 </div>
 </div>
 </section>
@@ -1661,7 +1695,7 @@
   })();
 
 </script>
-<script src="forest.js?v=smooth-14"></script>
-<script src="journey.js?v=smooth-14"></script>
+<script src="forest.js?v=toolbox-15"></script>
+<script src="journey.js?v=toolbox-15"></script>
 </body>
 </html>
