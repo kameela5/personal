@@ -251,3 +251,31 @@ footer{padding-block:20px}
 .forest-invitation>p{font-family:var(--portfolio-serif);font-style:italic;font-size:clamp(24px,3vw,36px);font-weight:400;line-height:1.2;letter-spacing:0;margin:0;color:#fff0e3}
 .journey-bottom{justify-content:center}
 @media(max-width:690px){.forest-invitation h1{margin-bottom:12px}.forest-invitation>p{font-size:26px}}
+/* More lively background details, with a small bounce and unhurried continuous spin. */
+.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{
+  --bob-time:5.5s;--turn-time:18s;--motion-delay:-2s;
+  transform:none;transform-origin:center;
+  animation:ambient-detail-bounce var(--bob-time) ease-in-out var(--motion-delay) infinite,ambient-detail-spin var(--turn-time) linear var(--motion-delay) infinite;
+}
+.ambient-scene .chrome-charm{opacity:.31;filter:saturate(.9) drop-shadow(0 5px 9px #5900040d)}
+.ambient-scene .chrome-bubble{opacity:.28;filter:saturate(.85)}
+.ambient-scene .charm-heart.h1{--bob-time:5.8s;--turn-time:22s;--motion-delay:-3s;opacity:.3}
+.ambient-scene .charm-heart.h2{--bob-time:6.4s;--turn-time:24s;--motion-delay:-7s;opacity:.27}
+.ambient-scene .charm-star.s1{--bob-time:4.8s;--turn-time:14s;--motion-delay:-5s;opacity:.36}
+.ambient-scene .charm-star.s2{--bob-time:5.3s;--turn-time:16s;--motion-delay:-9s;opacity:.31}
+.ambient-scene .chrome-bubble.cb1{--bob-time:6s;--turn-time:18s;--motion-delay:-4s;opacity:.29}
+.ambient-scene .chrome-bubble.cb2{--bob-time:5.2s;--turn-time:20s;--motion-delay:-8s;opacity:.25}
+.ambient-scene .chrome-bubble.cb3{--bob-time:4.6s;--turn-time:16s;--motion-delay:-2s;opacity:.28}
+.ambient-scene .chrome-bubble.cb4{--bob-time:6.5s;--turn-time:22s;--motion-delay:-11s;opacity:.24}
+@keyframes ambient-detail-bounce{0%,100%{translate:0 8px}50%{translate:5px -12px}}
+@keyframes ambient-detail-spin{from{rotate:0deg}to{rotate:360deg}}
+@media(max-width:690px){
+  .ambient-scene .chrome-charm{opacity:.24}
+  .ambient-scene .charm-heart.h1{opacity:.25}
+  .ambient-scene .charm-heart.h2{opacity:.22}
+  .ambient-scene .charm-star.s1{opacity:.28}
+  .ambient-scene .chrome-bubble.cb1{opacity:.23}
+  .ambient-scene .chrome-bubble.cb2{opacity:.21}
+  .ambient-scene .chrome-bubble.cb3{opacity:.23}
+}
+@media(prefers-reduced-motion:reduce){.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{animation:none!important;translate:none;rotate:none}}
