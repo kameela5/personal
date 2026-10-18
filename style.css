@@ -316,3 +316,8 @@ footer{padding-block:20px}
 @media(max-width:850px){.work-layout{grid-template-columns:minmax(0,1fr);gap:0}.work-layout .section-header,.work-layout .journey-heading{min-height:0}.work-layout .journey-card h3{font-size:25px}}
 @media(hover:none){.work-layout .project-card:active,.work-layout .journey-card:active{background:#ffffffe0!important;border-color:#bb995e80!important}}
 @media(prefers-reduced-motion:reduce){.work-layout .project-card,.work-layout .journey-card{transition:none}.work-layout .project-card::after,.work-layout .journey-card::after{animation:none!important}}
+/* Preserve the complete portrait on phones instead of cropping to a shallow frame. */
+@media(max-width:690px){
+  .intro-destination .hero-photo{background:transparent;box-shadow:none}
+  .intro-destination .hero-photo img{object-fit:contain;object-position:center}
+}
