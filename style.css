@@ -245,3 +245,9 @@ footer{padding-block:20px}
 .contact-panel .section-title{font-size:33px}
 }
 @media(prefers-reduced-motion:reduce){.forest-journey{height:100svh}}
+/* A quiet welcome, followed by the personal introduction. */
+.forest-top{justify-content:flex-end}
+.forest-invitation h1{font-size:clamp(68px,10vw,136px);line-height:1;letter-spacing:-.04em;margin:0 0 16px}
+.forest-invitation>p{font-family:var(--portfolio-serif);font-style:italic;font-size:clamp(24px,3vw,36px);font-weight:400;line-height:1.2;letter-spacing:0;margin:0;color:#fff0e3}
+.journey-bottom{justify-content:center}
+@media(max-width:690px){.forest-invitation h1{margin-bottom:12px}.forest-invitation>p{font-size:26px}}

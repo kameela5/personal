@@ -1,6 +1,6 @@
 (()=>{
 const section=document.querySelector('.forest-journey'),canvas=document.querySelector('#forest'),ctx=canvas.getContext('2d');
-const intro=document.querySelector('.forest-invitation'),name=document.querySelector('.name-reveal'),bar=document.querySelector('.journey-track span'),label=document.querySelector('.journey-label'),number=document.querySelector('.journey-number'),toggle=document.querySelector('.motion-toggle');
+const intro=document.querySelector('.forest-invitation'),bar=document.querySelector('.journey-track span'),toggle=document.querySelector('.motion-toggle');
 // The real intro lives in the sticky stage so the crossfade leads directly into usable content.
 const destination=document.createElement('div');destination.className='intro-destination';
 const hero=document.querySelector('#intro'),header=document.querySelector('.site-header');
@@ -50,8 +50,8 @@ introMix+=(desiredMix-introMix)*Math.min(1,.12*dt);if(Math.abs(desiredMix-introM
 section.dataset.scene=completed?'intro':'forest';
 destination.style.opacity=introMix;destination.inert=introMix<.98;destination.style.visibility=introMix>.001?'visible':'hidden';
 sceneElements.forEach(el=>{el.style.opacity=1-introMix;el.style.visibility=introMix===1?'hidden':'visible';el.inert=introMix>.5});
-intro.style.opacity=(1-smooth(.05,.3,p))*(1-introMix);name.style.display='none';
-bar.style.width=`${p*100}%`;label.textContent='SCROLL TO WANDER';number.textContent='01 — THE SCENIC ROUTE';
+intro.style.opacity=(1-smooth(.05,.3,p))*(1-introMix);
+bar.style.width=`${p*100}%`;
 requestDraw()}
 
 new IntersectionObserver(([entry])=>{onscreen=entry.isIntersecting;if(!onscreen){cancelAnimationFrame(raf);raf=0;last=0}else requestDraw()}).observe(section);
