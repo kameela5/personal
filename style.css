@@ -138,3 +138,35 @@ h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script
 .nav,.btn,.section-kicker,.eyebrow{font-weight:500}
 .intro-destination .intro-script{letter-spacing:-.045em}
 .forest-invitation h1{letter-spacing:-.035em}
+/* One horizontal journey on phones, tablets and desktops. */
+.journey-section .journey-heading{display:block;margin-bottom:24px}
+.journey-section .journey-intro{max-width:540px;margin-top:16px;font-size:14px;line-height:1.8}
+.journey-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+.journey-toolbar>p{font:italic 20px var(--portfolio-serif);color:var(--blue);margin:0}
+.journey-controls{display:flex;align-items:center;gap:9px;flex:none}
+.journey-position{font-size:11px;color:var(--deep);font-variant-numeric:tabular-nums;letter-spacing:.06em;min-width:57px;margin-right:8px}
+.journey-total{color:var(--muted)}
+.journey-arrow{width:42px;height:42px;display:grid;place-items:center;border:1px solid #6d213c33;border-radius:50%;color:var(--deep);background:#fff7;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
+.journey-previous svg{transform:rotate(180deg)}
+.journey-arrow:hover:not(:disabled){background:#eebbb580;border-color:var(--blue)}
+.journey-arrow:disabled{opacity:.3;cursor:default}
+.journey-section .journey-timeline{padding:0!important;overflow:visible!important}
+.journey-section .journey-timeline::before,.journey-section .journey-timeline::after{content:none;display:none}
+.journey-scroll{--chapter-width:clamp(260px,76vw,330px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#a16b7e55 transparent;padding-bottom:16px}
+.journey-section .journey-list{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--chapter-width);gap:18px;width:max-content;min-width:100%;max-width:none;margin:0;padding:0;list-style:none;align-items:stretch}
+.journey-section .journey-stop{position:relative;min-width:0;padding-top:34px;scroll-snap-align:start;--journey-offset:0px!important}
+.journey-section .journey-stop::before{content:'';position:absolute;top:8px;left:24px;width:13px;height:13px;border:2px solid #6d213c;border-radius:50%;background:#fbf2e9;box-shadow:0 0 0 5px #eebbb533;z-index:2}
+.journey-section .journey-stop::after{content:'';position:absolute;left:0;right:-18px;top:14px;height:1px;background:linear-gradient(90deg,#6d213c66,#c793a480)}
+.journey-section .journey-stop:last-child::after{right:calc(100% - 31px)}
+.journey-section .journey-card{height:100%;min-height:290px;padding:25px 24px 28px;margin:0;border:1px solid #6d213c26;border-radius:18px;background:#fff8;box-shadow:none;transform:none!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+.journey-section .journey-card:hover{background:#fff9!important;border-color:#6d213c55!important;box-shadow:0 8px 24px #59000409!important;transform:none!important}
+.journey-section .journey-date{font-size:10px;letter-spacing:.07em;line-height:1.5;font-weight:500}
+.journey-section .journey-year{font-size:10px;letter-spacing:.04em;font-weight:500;padding:6px 10px;margin:12px 0 20px;background:#eebbb54d;box-shadow:none;border-radius:30px}
+.journey-section .journey-card h3{font-family:var(--portfolio-serif);font-size:28px;line-height:1.08;font-weight:500;letter-spacing:-.025em;margin:0 0 10px}
+.journey-section .journey-company{font-size:11px;font-weight:600;line-height:1.65;margin-bottom:17px;color:var(--blue)}
+.journey-section .journey-description{font-size:13px;line-height:1.85;color:var(--muted);margin:0}
+@media(max-width:450px){.journey-toolbar>p{max-width:140px;font-size:18px;line-height:1.25}.journey-controls{gap:7px}.journey-arrow{width:38px;height:38px}.journey-position{min-width:48px;margin-right:3px}}
+@media(prefers-reduced-motion:reduce){.journey-scroll{scroll-behavior:auto}.journey-arrow{transition:none}}
+.journey-section .section-title{font-family:var(--portfolio-serif);font-weight:500;letter-spacing:-.03em}
+.journey-position{min-width:72px}
+@media(max-width:450px){.journey-toolbar>p{max-width:125px}.journey-position{min-width:62px}}
