@@ -279,3 +279,19 @@ footer{padding-block:20px}
   .ambient-scene .chrome-bubble.cb3{opacity:.23}
 }
 @media(prefers-reduced-motion:reduce){.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{animation:none!important;translate:none;rotate:none}}
+/* Native form submission works on the static GitHub Pages site. */
+.contact-panel.has-form{display:grid;grid-template-columns:.85fr 1.15fr;align-items:start;gap:38px;text-align:left;padding:30px}
+.has-form .section-summary{margin:0 0 20px;font-size:14px}
+.contact-email{font-size:clamp(12px,1.2vw,14px);color:var(--blue);text-decoration:underline;text-underline-offset:5px;text-decoration-color:#6d213c44;overflow-wrap:anywhere}
+.has-form .social-links{justify-content:flex-start;margin-top:22px;gap:22px}
+.contact-form{display:grid;gap:16px;min-width:0}
+.form-field{display:grid;gap:7px}
+.form-field label{font-family:var(--font-body);font-size:12px;font-weight:500;color:var(--deep)}
+.form-field input,.form-field textarea{box-sizing:border-box;width:100%;min-width:0;border:1px solid #6d213c33;background:#ffffff66;border-radius:10px;padding:12px 14px;font-family:var(--font-body);font-size:16px;line-height:1.5;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.form-field input{min-height:46px}
+.form-field textarea{min-height:124px;resize:vertical}
+.form-field input::placeholder,.form-field textarea::placeholder{color:#705e64b3;font-size:13px}
+.form-field input:focus,.form-field textarea:focus{outline:2px solid #6d213c55;outline-offset:2px;border-color:#6d213c;background:#fffc}
+.contact-submit{justify-content:space-between;min-height:46px;gap:25px;cursor:pointer;font-family:var(--font-body);border:0}
+.form-trap{display:none}
+@media(max-width:690px){.contact-panel.has-form{grid-template-columns:minmax(0,1fr);gap:26px;padding:24px 20px}.has-form .section-summary{margin-bottom:13px}.has-form .social-links{margin-top:17px}.contact-form{gap:14px}}
