@@ -166,3 +166,82 @@ h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script
 .journey-section .journey-description{max-width:58ch;font-size:14px;line-height:1.8;color:var(--muted);margin:0}
 @media(max-width:450px){.journey-section .journey-stop{padding-left:38px}.journey-section .journey-stop::after{width:15px}.journey-section .journey-card{padding:23px 20px 25px}.journey-section .journey-card h3{font-size:27px}.journey-section .journey-description{font-size:13px}.journey-section .journey-date{display:block}.journey-section .journey-year{margin:9px 0 0}.journey-note{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.journey-section .journey-list::before{animation:none;background-size:100% 100%}}
+/* Compact, direct presentation for scanning experience and project work. */
+.forest-journey{height:160svh}
+.forest-top{padding-top:22px;padding-bottom:22px}
+.container,.journey-section.container{width:min(1060px,calc(100% - 44px))}
+.section,.offline-section{padding-block:42px}
+section{scroll-margin-top:84px}
+.section-kicker{font-size:9px;letter-spacing:.16em;margin-bottom:8px}
+.section-title,.skill-panel h2{font-family:var(--portfolio-serif);font-size:38px;line-height:1.12;letter-spacing:-.025em;margin-bottom:12px}
+.section-kicker::before{content:none}
+.section-header{margin-bottom:20px}
+.about-section{grid-template-columns:190px 1fr;gap:35px;align-items:start}
+.about-body{font-size:14px;line-height:1.75}
+.about-body p{margin:0}
+.intro-destination>.hero{gap:35px;padding-top:24px;padding-bottom:24px}
+.intro-destination .intro-script{font-size:clamp(65px,8vw,105px)}
+.intro-destination .hero-lead{max-width:42ch;margin-bottom:19px}
+.intro-links{display:flex;gap:20px;margin-top:17px;font-size:12px;color:var(--blue)}
+.intro-links a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:#6d213c55}
+.intro-destination .hero-photo{max-height:340px;aspect-ratio:4/3}
+.projects-grid{gap:16px}
+.projects-grid .project-card{padding:22px 24px}
+.projects-grid .project-card h3{font-size:30px}
+.projects-grid .project-meta{margin:12px 0 14px;gap:6px}
+.tag{padding:5px 9px;font-size:10px}
+.projects-grid .project-card p{font-size:14px;line-height:1.7;margin-bottom:16px}
+.projects-grid .project-foot{padding-top:12px;font-size:10px}
+.journey-section .journey-heading{margin-bottom:20px}
+.journey-section .journey-list{gap:13px}
+.journey-section .journey-card{padding:17px 22px 19px;display:grid;grid-template-columns:155px minmax(0,1fr);column-gap:20px;border-radius:14px}
+.journey-section .journey-date{grid-column:1;grid-row:1 / 4;font-size:10px;padding-top:5px;line-height:1.6}
+.journey-section .journey-card h3{grid-column:2;grid-row:1;font-size:27px;line-height:1.15;margin:0 0 5px}
+.journey-section .journey-company{grid-column:2;grid-row:2;font-size:11px;margin-bottom:8px}
+.journey-section .journey-description{grid-column:2;grid-row:3;max-width:none;font-size:13px;line-height:1.7}
+.journey-section .journey-list::before{top:31px}
+.journey-section .journey-stop::before{top:24px}
+.journey-section .journey-stop::after{top:30px}
+.skills-section{padding-top:10px}
+.skill-panel{padding:24px;grid-template-columns:170px 1fr;gap:22px;border-radius:16px}
+.skill-panel h2{font-size:30px;margin-bottom:0}
+.skills-motion{gap:12px}
+.skill-feature{min-height:42px;padding:8px 12px;border-radius:10px}
+.skill-spinner{width:25px;height:25px;font-size:17px}
+.skill-feature-name{font-size:20px}
+.skills-list{gap:7px}
+.skills-list .skill-chip{padding:7px 11px;font-size:11px}
+.offline-heading{margin-bottom:18px}
+.offline-intro{max-width:720px;font-size:13px;line-height:1.7}
+.offline-slide img{aspect-ratio:16/10}
+.offline-slide figcaption{margin-top:8px;font-size:11px}
+.contact-section{padding-top:14px;padding-bottom:44px}
+.contact-panel{padding:32px 24px;border-radius:16px}
+.contact-panel .section-title{font-size:38px;margin-bottom:12px}
+.contact-panel .section-summary{font-size:14px;line-height:1.6;margin-bottom:18px}
+.social-links{margin-top:18px;gap:22px}
+footer{padding-block:20px}
+@media(max-width:690px){
+.section,.offline-section{padding-block:30px}
+.section-title{font-size:33px}
+.about-section{display:block}
+.about-section>div:first-child{margin-bottom:14px}
+.intro-destination>.hero{padding-top:22px;gap:20px}
+.intro-destination .hero-lead{font-size:14px;line-height:1.65;margin-bottom:17px}
+.intro-destination .hero-photo{height:25svh;max-height:230px;aspect-ratio:auto}
+.intro-links{margin-top:14px;font-size:11px}
+.projects-grid .project-card{padding:20px}
+.journey-section .journey-card{display:block;padding:16px 18px 18px}
+.journey-section .journey-date{display:block;font-size:9px;padding:0;margin-bottom:10px}
+.journey-section .journey-card h3{font-size:25px;margin-bottom:5px}
+.journey-section .journey-company{font-size:11px;margin-bottom:8px}
+.journey-section .journey-description{font-size:13px;line-height:1.7}
+.skill-panel{padding:20px}
+.skill-panel h2{font-size:29px;margin-bottom:15px}
+.skill-feature-hint{display:none}
+.skills-section{padding-top:6px}
+.contact-section{padding-top:6px;padding-bottom:30px}
+.contact-panel{padding:27px 20px}
+.contact-panel .section-title{font-size:33px}
+}
+@media(prefers-reduced-motion:reduce){.forest-journey{height:100svh}}
