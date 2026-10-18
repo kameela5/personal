@@ -25,7 +25,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--sand); color: var(--ink); font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    body { margin: 0; background: var(--sand); color: var(--ink); font-family:var(--font-body); -webkit-font-smoothing: antialiased; }
     ::selection { background: #edd0d9; color: var(--deep); }
     a { color: inherit; text-decoration: none; }
     button, a { -webkit-tap-highlight-color: transparent; }
@@ -45,7 +45,7 @@
     .availability::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #b66d87; box-shadow: 0 0 0 3px rgba(182,109,135,.17); }
     h1, h2, h3, p { margin-top: 0; }
     h1 { font-size: clamp(55px, 6.8vw, 91px); letter-spacing: -.078em; font-weight: 680; line-height: 1.045; margin: 29px 0 23px; color: var(--deep); }
-    h1 .accent { font-family: Georgia, Cambria, 'Times New Roman', serif; font-style: italic; font-weight: 400; color: var(--blue); }
+    h1 .accent { font-family:var(--portfolio-serif); font-style: italic; font-weight: 400; color: var(--blue); }
     .hero-lead { font-size: clamp(16px, 1.65vw, 19px); line-height: 1.75; color: var(--muted); max-width: 515px; margin: 0 0 30px; }
     .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 100px; padding: 14px 23px; font-size: 13px; font-weight: 660; transition: transform .2s, background .2s, box-shadow .2s; }
@@ -63,7 +63,7 @@
     .horizon { position:absolute; width:81%; height:31%; left:9.5%; bottom:19%; border-radius:50% 50% 38% 35% / 60% 50% 25% 25%; background: linear-gradient(180deg, rgba(184,113,139,.46), rgba(135,53,83,.36)); transform: rotate(-8deg); filter: blur(.3px); }
     .horizon::after { content:""; position:absolute; width:97%; height: 32%; background: rgba(252,236,241,.75); border-radius:50%; left:1.5%; top:-10%; transform:rotate(5deg); filter: blur(9px); }
     .front-wave { position: absolute; width: 89%; height: 24%; left: 7%; bottom: 15%; border-radius: 55% 45% 58% 42% / 74% 64% 38% 38%; background: linear-gradient(145deg,rgba(255,255,255,.45),rgba(212,155,177,.47)); transform: rotate(8deg); border-top: 1px solid rgba(255,255,255,.8); }
-    .art-caption { position: absolute; bottom: 5%; right: 3%; font-family: Georgia, serif; font-style: italic; font-size: 15px; letter-spacing:.03em; color: rgba(91,36,55,.62); }
+    .art-caption { position: absolute; bottom: 5%; right: 3%; font-family:var(--portfolio-serif); font-style: italic; font-size: 15px; letter-spacing:.03em; color: rgba(91,36,55,.62); }
     .art-spark { position: absolute; top:13%; left:15%; color: var(--blue); font-size: 26px; font-weight: 200; }
     section { scroll-margin-top: 110px; }
     .section { padding: 92px 0; }
@@ -125,8 +125,8 @@
 
     /* A personal take on the gentle handwritten welcome of a new device. */
     .intro-title { margin-top:18px; margin-bottom:26px; display:flex; flex-direction:column; align-items:flex-start; line-height:.95; }
-    .intro-title .intro-small { font-family:Georgia, Cambria, serif; font-size:clamp(34px,3.3vw,46px); font-weight:400; font-style:italic; color:var(--ink); letter-spacing:-.045em; line-height:1.1; }
-    .intro-title .intro-script { display:block; font-family:'Caveat','Segoe Print','Bradley Hand',cursive; font-size:clamp(92px,10.9vw,158px); font-weight:500; letter-spacing:-.065em; color:var(--blue); line-height:.94; padding:0 .1em .06em 0; clip-path:inset(0 100% 0 0); animation: handwritten-reveal 1.75s cubic-bezier(.2,.65,.2,1) 2.5s both; }
+    .intro-title .intro-small { font-family:var(--portfolio-serif); font-size:clamp(34px,3.3vw,46px); font-weight:400; font-style:italic; color:var(--ink); letter-spacing:-.045em; line-height:1.1; }
+    .intro-title .intro-script { display:block; font-family:var(--portfolio-serif); font-size:clamp(92px,10.9vw,158px); font-weight:500; letter-spacing:-.065em; color:var(--blue); line-height:.94; padding:0 .1em .06em 0; clip-path:inset(0 100% 0 0); animation: handwritten-reveal 1.75s cubic-bezier(.2,.65,.2,1) 2.5s both; }
     .intro-script .intro-dot { color:var(--sage); }
     .intro-overline { font-size:11px; font-weight:690; text-transform:uppercase; letter-spacing:.18em; color:var(--sage); margin:23px 0 0; }
     .hero-copy { position:relative; z-index:2; }
@@ -142,7 +142,7 @@
     .welcome { position:fixed;z-index:99;inset:0;display:grid;place-items:center;background:var(--sand);pointer-events:none;animation:welcome-fade 2.55s ease forwards; }
     .welcome-inside { text-align:center; padding:30px; }
     .welcome-small { font-size:12px; font-weight:600; color:var(--sage); letter-spacing:.25em; text-transform:uppercase; margin:0 0 6px;animation:welcome-small .8s ease both; }
-    .welcome-name { font-family:'Caveat','Segoe Print','Bradley Hand',cursive;font-size:clamp(95px,16vw,200px);color:var(--blue);font-weight:500;letter-spacing:-.07em;line-height:1.1;clip-path:inset(0 100% 0 0);animation:handwritten-reveal 1.25s cubic-bezier(.2,.65,.2,1) .2s both; }
+    .welcome-name { font-family:var(--portfolio-serif);font-size:clamp(95px,16vw,200px);color:var(--blue);font-weight:500;letter-spacing:-.07em;line-height:1.1;clip-path:inset(0 100% 0 0);animation:handwritten-reveal 1.25s cubic-bezier(.2,.65,.2,1) .2s both; }
     .welcome-tail { font-size:13px;letter-spacing:.07em;color:var(--muted);margin-top:10px;animation:welcome-small .7s ease .75s both; }
     @keyframes welcome-small { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:translateY(0)} }
     @keyframes welcome-fade {0%,74%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}100%{opacity:0;visibility:hidden} }
@@ -767,7 +767,7 @@
     /* ---- Playful handwritten intro + whimsical extras ---- */
     .intro-title .intro-script,
     .welcome-name {
-      font-family: 'Kalam','Caveat','Segoe Print','Bradley Hand',cursive;
+      font-family:var(--portfolio-serif);
       font-weight: 700;
       letter-spacing: -0.045em;
       text-shadow: 0 2px 0 rgba(255,255,255,.34), 0 10px 20px rgba(89,0,4,.08);
@@ -1261,7 +1261,9 @@
     }
 
 </style>
-<link rel="stylesheet" href="style.css?v=consistent-4">
+<link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=typography-5">
 </head>
 <body id="top">
 <!-- Ambient lava-glass scene -->
@@ -1664,6 +1666,6 @@
   })();
 
 </script>
-<script src="forest.js?v=consistent-4"></script>
+<script src="forest.js?v=typography-5"></script>
 </body>
 </html>
