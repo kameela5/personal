@@ -38,3 +38,32 @@ body{font-family:'DM Sans',Arial,sans-serif}
 /* A photographic dawn, with soft depth as you wander into the page. */
 .forest-invitation,.name-reveal{text-shadow:0 2px 35px #23101d88}
 .forest-invitation h1 em{color:#f6d9d6}
+/* The opening dissolves into the real introduction and only resets at the top. */
+.forest-journey{background:transparent}
+.forest-stage{background:transparent;isolation:isolate}
+.forest-stage>canvas,.forest-stage>.forest-top,.forest-stage>.forest-invitation,.forest-stage>.journey-bottom,.forest-stage>.motion-toggle{will-change:opacity}
+.forest-invitation h1{color:#fffaf3;text-shadow:0 2px 30px #43513966}
+.forest-invitation h1 em{color:#fff0e3}
+.intro-destination{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;visibility:hidden;color:var(--ink)}
+.intro-destination>.site-header{position:relative;flex:none;background:transparent;backdrop-filter:none;z-index:2}
+.intro-destination>.hero{flex:1;min-height:0;padding-top:25px;padding-bottom:35px;gap:30px;align-content:center}
+.intro-destination .hero-copy{align-self:center}
+.intro-destination .intro-title{margin-top:16px;margin-bottom:18px}
+.intro-destination .hero-lead{font-size:17px;line-height:1.7;margin-bottom:24px}
+.intro-destination .hero-bottom{margin-top:28px}
+@media(max-width:690px){
+.intro-destination>.hero{gap:18px;padding:20px 0 30px;justify-content:center}
+.intro-destination .intro-overline{margin:12px 0}
+.intro-destination .intro-title{margin:8px 0 14px}
+.intro-destination .intro-small{font-size:27px}
+.intro-destination .intro-script{font-size:70px}
+.intro-destination .hero-lead{font-size:13px;line-height:1.65;margin-bottom:15px}
+.intro-destination .availability{font-size:9px;padding:7px 9px}
+.intro-destination .hero-bottom{margin-top:16px;font-size:10px}
+.intro-destination .btn{padding:11px 17px;font-size:11px}
+.intro-destination .art-frame{width:min(220px,58vw);align-self:center}
+.intro-destination .hero-photo{max-height:20svh}
+.intro-destination .art-caption{font-size:10px;padding:6px 10px;bottom:-10px}
+.intro-destination .art-spark{font-size:17px;top:-12px}
+}
+@media(max-height:650px) and (min-width:691px){.intro-destination .intro-script{font-size:80px}.intro-destination .hero-lead{font-size:14px}.intro-destination .hero-bottom{margin-top:15px}}
