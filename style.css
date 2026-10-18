@@ -51,19 +51,46 @@ body{font-family:'DM Sans',Arial,sans-serif}
 .intro-destination .intro-title{margin-top:16px;margin-bottom:18px}
 .intro-destination .hero-lead{font-size:17px;line-height:1.7;margin-bottom:24px}
 .intro-destination .hero-bottom{margin-top:28px}
-@media(max-width:690px){
-.intro-destination>.hero{gap:18px;padding:20px 0 30px;justify-content:center}
-.intro-destination .intro-overline{margin:12px 0}
-.intro-destination .intro-title{margin:8px 0 14px}
-.intro-destination .intro-small{font-size:27px}
-.intro-destination .intro-script{font-size:70px}
-.intro-destination .hero-lead{font-size:13px;line-height:1.65;margin-bottom:15px}
-.intro-destination .availability{font-size:9px;padding:7px 9px}
-.intro-destination .hero-bottom{margin-top:16px;font-size:10px}
-.intro-destination .btn{padding:11px 17px;font-size:11px}
-.intro-destination .art-frame{width:min(220px,58vw);align-self:center}
-.intro-destination .hero-photo{max-height:20svh}
-.intro-destination .art-caption{font-size:10px;padding:6px 10px;bottom:-10px}
-.intro-destination .art-spark{font-size:17px;top:-12px}
-}
 @media(max-height:650px) and (min-width:691px){.intro-destination .intro-script{font-size:80px}.intro-destination .hero-lead{font-size:14px}.intro-destination .hero-bottom{margin-top:15px}}
+
+/* Consistent drawn icons, including on iOS where Unicode becomes emoji. */
+.ui-arrow{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+.art-spark svg{display:block;width:24px;height:24px}
+@media(max-width:690px){
+  .intro-destination .container{width:calc(100% - 44px)}
+  .intro-destination .header-inner{height:62px;gap:14px}
+  .intro-destination .logo{font-size:25px;letter-spacing:-1px}
+  .intro-destination .nav{gap:17px;font-size:11px;font-weight:500}
+  .intro-destination>.hero{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:23px;padding:26px 0 25px;flex:1}
+  .intro-destination .hero-copy{align-self:stretch}
+  .intro-destination .availability{border:0;background:none;box-shadow:none;border-radius:0;padding:0;font-size:9px;font-weight:500;letter-spacing:.03em;color:var(--muted);gap:7px}
+  .intro-destination .availability::before{width:5px;height:5px;background:var(--blue);box-shadow:none}
+  .intro-destination .intro-overline{font-size:8px;letter-spacing:.2em;margin:20px 0 10px;font-weight:600}
+  .intro-destination .intro-title{margin:0 0 17px;gap:4px}
+  .intro-destination .intro-small{font-size:25px;letter-spacing:-.04em;line-height:1.1}
+  .intro-destination .intro-script{font-size:clamp(65px,20vw,83px);line-height:.99;letter-spacing:-.065em;padding:0 0 3px}
+  .intro-destination .hero-lead{font-size:14px;line-height:1.7;margin:0 0 22px;max-width:36ch;color:#624651}
+  .intro-destination .hero-actions{display:grid;grid-template-columns:1.3fr 1fr;gap:10px}
+  .intro-destination .btn{padding:13px 14px;min-height:44px;font-size:11px;gap:12px;font-weight:500;justify-content:space-between;box-shadow:none}
+  .intro-destination .btn-primary{background:#590004}
+  .intro-destination .btn-secondary{border-color:#59000425;background:#ffffff55}
+  .intro-destination .hero-bottom{display:none}
+  .intro-destination .art-frame{width:100%;max-width:none;align-self:stretch;margin:0}
+  .intro-destination .hero-photo{width:100%;height:clamp(150px,27svh,270px);max-height:none;aspect-ratio:auto;border-radius:16px;box-shadow:0 12px 30px #59000412}
+  .intro-destination .hero-photo img{object-fit:cover;object-position:50% 48%}
+  .intro-destination .art-spark{top:-10px;left:auto;right:12px;color:#6d213c}
+  .intro-destination .art-spark svg{width:21px;height:21px}
+  .intro-destination .art-caption{right:13px;bottom:12px;font-size:11px;padding:8px 12px;background:#fff9f0dd;border:0;box-shadow:none}
+  .section-kicker::after{content:none}
+  .floating-cat{width:40px;right:9px;bottom:max(8px,env(safe-area-inset-bottom));opacity:.7}
+  .section-title{font-size:35px;line-height:1.12;letter-spacing:-.04em}
+  .section-summary,.about-body{font-size:14px;line-height:1.8}
+}
+@media(max-width:690px) and (max-height:740px){
+  .intro-destination>.hero{padding-top:16px;gap:18px}
+  .intro-destination .intro-overline{margin-top:14px}
+  .intro-destination .intro-script{font-size:65px}
+  .intro-destination .hero-lead{font-size:13px;line-height:1.65;margin-bottom:16px}
+  .intro-destination .intro-title{margin-bottom:13px}
+  .intro-destination .hero-photo{height:22svh;min-height:130px}
+}
