@@ -9,17 +9,24 @@ destination.append(introNav,hero);document.querySelector('.forest-stage').append
 const sceneElements=[...document.querySelector('.forest-stage').children].filter(el=>el!==destination);
 let completed=false,introMix=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduced.matches,w,h,dpr,progress=0,target=0,mx=0,my=0,px=0,py=0,last=0;
+let raf=0,onscreen=true,lastPaint=0;
+const mobile=matchMedia('(max-width: 690px)').matches;
+function requestDraw(){if(!raf&&onscreen&&!document.hidden)raf=requestAnimationFrame(draw)}
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));const smooth=(a,b,v)=>{let x=clamp((v-a)/(b-a));return x*x*(3-2*x)};
 function random(seed){let x=Math.sin(seed*127.1+311.7)*43758.5453;return x-Math.floor(x)}
-function resize(){w=innerWidth;h=innerHeight;dpr=Math.min(devicePixelRatio||1,2);canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);update()}
-function update(){target=clamp(-section.getBoundingClientRect().top/(section.offsetHeight-h||1));if(target>=.76)completed=true;else if(scrollY<=4)completed=false}
+function resize(){w=innerWidth;h=innerHeight;dpr=Math.min(devicePixelRatio||1,mobile?1.5:2);canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);update()}
+function update(){target=clamp(-section.getBoundingClientRect().top/(section.offsetHeight-h||1));if(target>=.76)completed=true;else if(scrollY<=4)completed=false;requestDraw()}
 // Skipping the walk reaches the same intro rather than scrolling to a hidden element.
 document.querySelector('.skip-forest').addEventListener('click',e=>{e.preventDefault();completed=true;window.scrollTo({top:section.offsetTop+section.offsetHeight-innerHeight,behavior:reduced.matches?'instant':'smooth'})});
 addEventListener('resize',resize);addEventListener('scroll',update,{passive:true});addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});
-toggle.onclick=()=>{paused=!paused;toggle.textContent=paused?'resume motion':'pause motion';toggle.setAttribute('aria-pressed',String(paused));};toggle.textContent=paused?'resume motion':'pause motion';toggle.setAttribute('aria-pressed',String(paused));
+toggle.onclick=()=>{paused=!paused;toggle.textContent=paused?'resume motion':'pause motion';toggle.setAttribute('aria-pressed',String(paused));requestDraw()};toggle.textContent=paused?'resume motion':'pause motion';toggle.setAttribute('aria-pressed',String(paused));
 // Original forest geometry from the first scenic-route version.
 const plants=[];for(let i=0;i<68;i++){const side=i%2?1:-1;plants.push({z:1.3+Math.floor(i/2)*.48,x:side*(1.15+random(i+1)*3.8),height:2.8+random(i+12)*2,width:.075+random(i+23)*.09,seed:i})}
-function draw(time){let dt=Math.min((time-last)/16.67||1,3);last=time;progress+=(target-progress)*Math.min(1,.1*dt);px+=(mx-px)*.035*dt;py+=(my-py)*.035*dt;
+function draw(time){raf=0;if(!onscreen||document.hidden)return;
+// Once the intro is opaque the forest has no visible pixels to paint.
+if(introMix===1&&(completed||paused||reduced.matches)){last=time;return}
+if(mobile&&time-lastPaint<1000/30){requestDraw();return}lastPaint=time;
+let dt=Math.min((time-last)/16.67||1,3);last=time;progress+=(target-progress)*Math.min(1,.1*dt);px+=(mx-px)*.035*dt;py+=(my-py)*.035*dt;
 const p=paused?1:progress,travel=14*Math.pow(smooth(0,.86,p),1.8);
 // The rose-and-burgundy scene from the first uploaded-portfolio merge.
 let sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#99b9cb');sky.addColorStop(.48,'#eed8d5');sky.addColorStop(1,'#ad8194');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
@@ -45,7 +52,9 @@ destination.style.opacity=introMix;destination.inert=introMix<.98;destination.st
 sceneElements.forEach(el=>{el.style.opacity=1-introMix;el.style.visibility=introMix===1?'hidden':'visible';el.inert=introMix>.5});
 intro.style.opacity=(1-smooth(.05,.3,p))*(1-introMix);name.style.display='none';
 bar.style.width=`${p*100}%`;label.textContent='SCROLL TO WANDER';number.textContent='01 — THE SCENIC ROUTE';
-requestAnimationFrame(draw)}
+requestDraw()}
 
-resize();requestAnimationFrame(draw);
+new IntersectionObserver(([entry])=>{onscreen=entry.isIntersecting;if(!onscreen){cancelAnimationFrame(raf);raf=0;last=0}else requestDraw()}).observe(section);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;last=0}else requestDraw()});
+resize();requestDraw();
 })();
