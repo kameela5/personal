@@ -321,3 +321,20 @@ footer{padding-block:20px}
   .intro-destination .hero-photo{background:transparent;box-shadow:none}
   .intro-destination .hero-photo img{object-fit:contain;object-position:center}
 }
+/* Clip the photograph itself: contain leaves empty space outside the image. */
+@media(max-width:690px){
+  .intro-destination .hero-photo{display:flex;justify-content:center;align-items:center}
+  .intro-destination .hero-photo img{display:block;width:auto;height:100%;max-width:100%;border-radius:16px;border:1px solid #6d213c22;box-sizing:border-box;object-fit:contain}
+}
+/* Keep the moving colors, but avoid repainting a full-screen gradient every frame. */
+.ambient-scene{animation:none}
+.ambient-scene .ambient-blob.b1{animation-name:ambient-cloud-one}
+.ambient-scene .ambient-blob.b2{animation-name:ambient-cloud-two}
+@keyframes ambient-cloud-one{0%{transform:translate3d(-8%,-4%,0) rotate(-12deg) scale(1)}50%{transform:translate3d(40%,23%,0) rotate(23deg) scale(1.14)}100%{transform:translate3d(73%,42%,0) rotate(-8deg) scale(.97)}}
+@keyframes ambient-cloud-two{0%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}50%{transform:translate3d(-37%,39%,0) rotate(-22deg) scale(1.12)}100%{transform:translate3d(-71%,8%,0) rotate(18deg) scale(.92)}}
+.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{transform:translateZ(0);will-change:transform}
+@media(max-width:690px){
+  .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:#e9eaece8}
+  .intro-destination>.site-header{background:transparent}
+}
+@media(prefers-reduced-motion:reduce){.ambient-scene .ambient-blob{animation:none!important}.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{will-change:auto}}

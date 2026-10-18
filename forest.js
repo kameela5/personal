@@ -15,7 +15,7 @@ function requestDraw(){if(!raf&&onscreen&&!document.hidden)raf=requestAnimationF
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));const smooth=(a,b,v)=>{let x=clamp((v-a)/(b-a));return x*x*(3-2*x)};
 function random(seed){let x=Math.sin(seed*127.1+311.7)*43758.5453;return x-Math.floor(x)}
 function resize(){w=innerWidth;h=innerHeight;dpr=Math.min(devicePixelRatio||1,mobile?1.5:2);canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);update()}
-function update(){target=clamp(-section.getBoundingClientRect().top/(section.offsetHeight-h||1));if(target>=.76)completed=true;else if(scrollY<=4)completed=false;requestDraw()}
+function update(){if(completed&&scrollY>4){requestDraw();return}target=clamp(-section.getBoundingClientRect().top/(section.offsetHeight-h||1));if(target>=.76)completed=true;else if(scrollY<=4)completed=false;requestDraw()}
 // Skipping the walk reaches the same intro rather than scrolling to a hidden element.
 document.querySelector('.skip-forest').addEventListener('click',e=>{e.preventDefault();completed=true;window.scrollTo({top:section.offsetTop+section.offsetHeight-innerHeight,behavior:reduced.matches?'instant':'smooth'})});
 addEventListener('resize',resize);addEventListener('scroll',update,{passive:true});addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});

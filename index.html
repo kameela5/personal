@@ -1263,7 +1263,7 @@
 </style>
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=portrait-13">
+<link rel="stylesheet" href="style.css?v=smooth-14">
 </head>
 <body id="top">
 <!-- Ambient lava-glass scene -->
@@ -1520,7 +1520,7 @@
     });
     let loopWidth = 0;
     let step = 1;
-    let onscreen = false, hovering = false, focusing = false;
+    let onscreen = false, hovering = false, focusing = false, touching = false;
     let raf = null, last = 0, coolDownUntil = 0;
     const measure = () => {
       loopWidth = track.children[count].offsetLeft - originals[0].offsetLeft;
@@ -1529,9 +1529,10 @@
     measure();
     const updateCounter = () => {
       const index = Math.round(track.scrollLeft / step) % count;
-      if(currentLabel) currentLabel.textContent = String(index + 1).padStart(2,'0');
+      const label=String(index+1).padStart(2,'0');if(currentLabel&&currentLabel.textContent!==label)currentLabel.textContent=label;
     };
     const loop = (time) => {
+      if(last&&time-last<1000/30){raf=requestAnimationFrame(loop);return}
       if (!last) last = time;
       const elapsed = Math.min((time - last) / 1000, .07);
       last = time;
@@ -1542,7 +1543,7 @@
       }
       raf = requestAnimationFrame(loop);
     };
-    const sync=()=>{if(raf!==null)cancelAnimationFrame(raf);raf=null;last=0;if(onscreen&&!document.hidden&&!motion.matches)raf=requestAnimationFrame(loop)};
+    const sync=()=>{if(raf!==null)cancelAnimationFrame(raf);raf=null;last=0;if(onscreen&&!hovering&&!focusing&&!touching&&!document.hidden&&!motion.matches)raf=requestAnimationFrame(loop)};
     const pauseAfterClick = () => { coolDownUntil = performance.now() + 1600; };
     const goTo = (direction) => {
       measure();
@@ -1560,10 +1561,14 @@
     };
     prev?.addEventListener('click', () => goTo(-1));
     next?.addEventListener('click', () => goTo(1));
-    track.addEventListener('mouseenter', () => { hovering = true; });
-    track.addEventListener('mouseleave', () => { hovering = false; last = 0; });
-    track.addEventListener('focusin', () => { focusing = true; });
-    track.addEventListener('focusout', () => { focusing = false; last = 0; });
+    track.addEventListener('mouseenter', () => { hovering = true; sync(); });
+    track.addEventListener('mouseleave', () => { hovering = false; sync(); });
+    track.addEventListener('focusin', () => { focusing = true; sync(); });
+    track.addEventListener('focusout', () => { focusing = false; sync(); });
+    track.addEventListener('touchstart',()=>{touching=true;sync()},{passive:true});
+    const touchFinished=()=>{touching=false;pauseAfterClick();sync()};
+    track.addEventListener('touchend',touchFinished,{passive:true});
+    track.addEventListener('touchcancel',touchFinished,{passive:true});
     track.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight') { e.preventDefault(); goTo(1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(-1); }
@@ -1618,7 +1623,7 @@
     let lastScroll = window.scrollY;
     let walkTimer = null;
     const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-    const setBubble = text => { const bubble = cat.querySelector('.cat-bubble'); if (bubble) bubble.textContent = text; };
+    const setBubble = text => { const bubble = cat.querySelector('.cat-bubble'); if (bubble&&bubble.textContent!==text) bubble.textContent = text; };
     const onMove = e => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
@@ -1650,13 +1655,13 @@
     };
     const followsPointer=matchMedia('(hover: hover) and (pointer: fine)').matches;
     if(followsPointer)window.addEventListener('mousemove', onMove, {passive:true});
-    window.addEventListener('scroll', onScroll, {passive:true});
+    if(followsPointer)window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('touchstart', () => setBubble('hi ♡'), {passive:true, once:true});
     if(followsPointer)requestAnimationFrame(tick);
   })();
 
 </script>
-<script src="forest.js?v=portrait-13"></script>
-<script src="journey.js?v=portrait-13"></script>
+<script src="forest.js?v=smooth-14"></script>
+<script src="journey.js?v=smooth-14"></script>
 </body>
 </html>
