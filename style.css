@@ -295,3 +295,24 @@ footer{padding-block:20px}
 .contact-submit{justify-content:space-between;min-height:46px;gap:25px;cursor:pointer;font-family:var(--font-body);border:0}
 .form-trap{display:none}
 @media(max-width:690px){.contact-panel.has-form{grid-template-columns:minmax(0,1fr);gap:26px;padding:24px 20px}.has-form .section-summary{margin-bottom:13px}.has-form .social-links{margin-top:17px}.contact-form{gap:14px}}
+/* Give work and projects their own compact columns. */
+.work-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:34px;align-items:start}
+.work-layout>#projects,.work-layout>#experience,.work-layout>#projects>.container{width:100%;min-width:0;margin:0}
+.work-layout .projects-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+.work-layout .section-header,.work-layout .journey-heading{min-height:69px;margin-bottom:18px;align-items:start}
+.work-layout .section-header>a{font-size:11px;padding-top:4px;white-space:nowrap}
+.work-layout .journey-card{display:block;padding:18px 20px 20px}
+.work-layout .journey-date{display:block;font-size:9px;padding:0;margin:0 0 9px}
+.work-layout .journey-card h3{font-size:26px;margin-bottom:6px}
+.work-layout .journey-company{margin-bottom:9px}
+.work-layout .journey-description{font-size:13px;line-height:1.75}
+.work-layout .project-card,.work-layout .journey-card{position:relative;isolation:isolate;overflow:hidden;transition:background .25s,border-color .25s,box-shadow .25s}
+.work-layout .project-card>*,.work-layout .journey-card>*{position:relative;z-index:1}
+.work-layout .project-card::after,.work-layout .journey-card::after{content:'';position:absolute;z-index:0;pointer-events:none;inset:-20% -50%;background:linear-gradient(110deg,transparent 35%,#fff9 47%,#fff2 55%,transparent 66%);transform:translateX(-100%);opacity:0}
+.work-layout .project-card:is(:hover,:focus-within),.work-layout .journey-card:is(:hover,:focus-within){background:#ffffffe0!important;border-color:#bb995e80!important;box-shadow:0 6px 24px #6d213c0d,0 0 18px #fff5d94d!important;transform:none!important}
+.work-layout .project-card:is(:hover,:focus-within)::after,.work-layout .journey-card:is(:hover,:focus-within)::after{animation:work-card-shine .85s ease-out both}
+.work-layout article:focus-visible{outline:2px solid #91395888;outline-offset:3px}
+@keyframes work-card-shine{0%{transform:translateX(-65%);opacity:0}15%{opacity:.65}100%{transform:translateX(65%);opacity:0}}
+@media(max-width:850px){.work-layout{grid-template-columns:minmax(0,1fr);gap:0}.work-layout .section-header,.work-layout .journey-heading{min-height:0}.work-layout .journey-card h3{font-size:25px}}
+@media(hover:none){.work-layout .project-card:active,.work-layout .journey-card:active{background:#ffffffe0!important;border-color:#bb995e80!important}}
+@media(prefers-reduced-motion:reduce){.work-layout .project-card,.work-layout .journey-card{transition:none}.work-layout .project-card::after,.work-layout .journey-card::after{animation:none!important}}
