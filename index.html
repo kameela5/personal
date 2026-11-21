@@ -110,10 +110,6 @@
     .timeline-company { font-size:13px; color:var(--blue); font-weight:620; margin-bottom:8px; }
     .timeline-item p { font-size:13px; line-height:1.75; color:var(--muted); margin:0; }
     .skills-section { padding-top:0; }
-    .skill-panel { padding:40px; background:#f1ebec; border-radius:23px; display:grid; grid-template-columns:240px 1fr; gap:32px; align-items:start; }
-    .skill-panel h2 { margin:0; font-size:29px; line-height:1.2; letter-spacing:-.04em; color:var(--deep); }
-    .skills-list { display:flex; flex-wrap:wrap; gap:9px; }
-    .skills-list span { background:rgba(255,255,255,.75); border:1px solid rgba(81,62,46,.06); color:#7a6a5c; padding:10px 14px; border-radius:100px; font-size:12px; font-weight:560; }
     .contact-section { padding-bottom:100px; }
     .contact-panel { text-align:center; border-radius:25px; padding:80px 25px; background:linear-gradient(140deg,#f1e0e4,#e8d5da 58%,#f8eef0); border:1px solid rgba(81,62,46,.07); }
     .contact-panel .section-title { font-size:clamp(42px,5.2vw,65px); }
@@ -158,7 +154,6 @@
       h1 { font-size:clamp(51px,7vw,75px); }
       .nav { gap:20px; }
       .experience-grid { gap:30px; }
-      .skill-panel { grid-template-columns:180px 1fr; }
     }
     @media(max-width:690px) {
       .container { width:min(100% - 36px,540px); }
@@ -179,8 +174,6 @@
       .timeline { margin-top:31px; }
       .timeline-item { grid-template-columns:97px 1fr; gap:12px; }
       .skills-section { padding-top:0; }
-      .skill-panel { display:block; padding:26px; }
-      .skill-panel h2 { margin-bottom:21px; }
       .contact-panel { padding:58px 18px; }
       .footer-inner { flex-direction:column; text-align:center; }
     }
@@ -348,14 +341,14 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(73,48,36,.10);
     }
-    .pill-link, .btn-secondary, .project-card, .contact-panel, .skill-panel, .timeline-item, .offline-slide img {
+    .pill-link, .btn-secondary, .project-card, .contact-panel, .timeline-item, .offline-slide img {
       box-shadow: 0 10px 28px rgba(73,48,36,.06);
     }
     .about-section, .projects-section, .offline-section, .contact-panel {
       background: rgba(255,255,255,.34);
       backdrop-filter: blur(8px);
     }
-    .project-card, .skill-panel, .timeline-item, .contact-panel, .offline-arrow {
+    .project-card, .timeline-item, .contact-panel, .offline-arrow {
       background: rgba(255,255,255,.62);
       border-color: rgba(73,48,36,.10);
     }
@@ -436,7 +429,7 @@
     .section { padding-block: 86px; }
     .skills-section { padding-top: 12px; }
     .offline-section { padding-block: 84px 90px; }
-    .project-card, .skill-panel, .contact-panel {
+    .project-card, .contact-panel {
       background: rgba(255,255,255,.50);
       border: 1px solid rgba(255,255,255,.65);
       box-shadow: 0 12px 42px rgba(73,48,36,.045);
@@ -445,7 +438,7 @@
     }
     .project-card:hover { box-shadow: 0 20px 46px rgba(73,48,36,.09); }
     .timeline-item { box-shadow: none; border-bottom: 1px solid rgba(73,48,36,.09); }
-    .skill-panel { border-radius: 22px; }
+
     .contact-panel {
       background: linear-gradient(128deg, rgba(255,255,255,.54), rgba(231,183,189,.16) 49%, rgba(186,192,146,.17));
       border-radius: 24px;
@@ -568,11 +561,10 @@
     }
     main > .section:hover::before, main > .section:focus-within::before,
     main > .contact-section:hover::before, main > .contact-section:focus-within::before { opacity:1; }
-    .project-card, .skill-panel, .contact-panel, .small-facts span, .tag, .offline-slide img {
+    .project-card, .contact-panel, .small-facts span, .tag, .offline-slide img {
       transition: background .32s ease, box-shadow .32s ease, filter .32s ease, border-color .32s ease, transform .32s ease;
     }
     .project-card:hover, .project-card:focus-within,
-    .skill-panel:hover, .skill-panel:focus-within,
     .contact-panel:hover, .contact-panel:focus-within {
       background:rgba(232,214,219,.68);
       box-shadow:0 17px 42px rgba(73,48,36,.09);
@@ -590,61 +582,12 @@
     .offline-slide figcaption { transition:color .3s ease; }
     .offline-slide:hover figcaption { color:var(--black-cherry); }
 
-    /* Living skills display: rotates the featured technology and softly highlights the corresponding chip. */
-    .skill-panel { align-items:center; }
-    .skills-motion { display:flex; flex-direction:column; gap:20px; min-width:0; }
-    .skill-feature {
-      display:flex; align-items:center; gap:14px; min-height:72px; padding:12px 16px;
-      border-radius:17px;
-      background:linear-gradient(118deg,rgba(186,192,146,.32),rgba(231,183,189,.36));
-      border:1px solid rgba(80,88,50,.1);
-      color:var(--deep);
-      transition:background .35s ease;
-    }
-    .skill-feature:hover { background:linear-gradient(118deg,rgba(186,192,146,.45),rgba(231,183,189,.57)); }
-    .skill-spinner {
-      width:41px; height:41px; flex:none; display:grid; place-items:center;
-      border:1.5px dashed rgba(80,88,50,.52); border-radius:50%;
-      animation:skill-orbit 12s linear infinite; font-size:23px; color:#505832;
-    }
-    .skill-spinner span { animation:skill-orbit 12s linear infinite reverse; }
-    .skill-feature-name {
-      display:block; font-size:clamp(18px,2.1vw,26px); font-weight:710; letter-spacing:-.045em;
-      transform-origin:50% 50%;
-    }
-    .skill-feature-name.flip-in { animation: skill-switch .48s cubic-bezier(.2,.8,.2,1); }
-    .skill-feature-hint { font-size:11px; letter-spacing:.02em; color:var(--muted); margin-left:auto; white-space:nowrap; }
-    @keyframes skill-orbit { to { transform:rotate(360deg); } }
-    @keyframes skill-switch { from { opacity:.18; transform:rotateX(48deg) translateY(8px); } to {opacity:1;transform:rotateX(0) translateY(0);} }
-    .skills-list .skill-chip {
-      appearance:none; -webkit-appearance:none; font-family:inherit;
-      cursor:pointer; text-align:center;
-      border:1px solid rgba(80,88,50,.09);
-      color:#6b5a4c; background:rgba(255,255,255,.6);
-      padding:10px 14px; border-radius:999px; font-size:12px; font-weight:620;
-      transition:background .28s ease,color .28s ease,transform .28s ease,border-color .28s ease;
-    }
-    .skills-list .skill-chip:hover, .skills-list .skill-chip:focus-visible {
-      background:#e7b7bd; border-color:#505832; color:#493024;
-      transform:translateY(-2px);
-    }
-    .skills-list .skill-chip.is-active {
-      background:linear-gradient(120deg,#505832,#493024);
-      color:white; border-color:#505832;
-      box-shadow:0 5px 17px rgba(73,48,36,.18);
-    }
-    .skills-list .skill-chip.is-active:hover { background:#6d533e; color:#fff; }
     @media (max-width:690px) {
-      .skill-panel { padding:26px 21px; }
-      .skill-feature { gap:11px; min-height:65px; padding:10px 12px; }
-      .skill-feature-name { font-size:21px; }
-      .skill-feature-hint {display:none;}
       .timeline-item, .timeline-item:first-child {margin:0 -9px; padding:17px 9px;}
       .timeline-item:hover {transform:none;}
       .offline-track { overscroll-behavior-x:contain; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .skill-spinner, .skill-spinner span, .skill-feature-name.flip-in { animation:none !important; }
       main > .section::before, main > .contact-section::before { transition:none; }
       .timeline-item:hover { transform:none; }
       .offline-slide img:hover { transform:none; }
@@ -1081,12 +1024,11 @@
     .intro-title .intro-script { text-shadow:0 2px 0 rgba(255,255,255,.62),0 6px 13px rgba(73,48,36,.09); }
 
     /* A stronger hover: noticeable warm brown highlights, yet readable type. */
-    .project-card,.skill-panel,.journey-card,.contact-panel,.skill-feature,.offline-slide img,
-    .offline-arrow,.skills-list .skill-chip,.nav a,.small-facts span,.tag,.btn,.hero-photo,.art-frame {
+    .project-card,.journey-card,.contact-panel,.offline-slide img,
+    .offline-arrow,.nav a,.small-facts span,.tag,.btn,.hero-photo,.art-frame {
       transition:background .32s ease,border-color .32s ease,box-shadow .32s ease,filter .32s ease,color .25s ease,transform .32s ease;
     }
     .project-card:is(:hover,:focus-within),
-    .skill-panel:is(:hover,:focus-within),
     .contact-panel:is(:hover,:focus-within) {
       background:linear-gradient(139deg,rgba(80,88,50,.25),rgba(231,183,189,.60) 65%,rgba(186,192,146,.30)) !important;
       border-color:rgba(80,88,50,.45) !important;
@@ -1107,11 +1049,7 @@
       border-color:rgba(246,241,234,.84) !important;
     }
     .offline-slide:is(:hover,:focus-within) figcaption { color:#493024;font-weight:700; }
-    .skills-list .skill-chip:hover,.skills-list .skill-chip:focus-visible {
-      background:#505832 !important;color:#fff !important;
-      border-color:#493024 !important;box-shadow:0 7px 19px rgba(73,48,36,.18);
-    }
-    .skill-feature:hover { background:linear-gradient(126deg,rgba(80,88,50,.17),rgba(186,192,146,.41)) !important; }
+
     .small-facts span:hover,.tag:hover { background:#505832 !important;color:#fff !important; }
     .nav a { position:relative; }
     .nav a::after { content:'';height:3px;border-radius:4px;position:absolute;bottom:-8px;left:0;right:100%;background:#505832;transition:right .26s ease; }
@@ -1255,7 +1193,7 @@
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="images/hello-lavender.webp" as="image" type="image/webp" media="(prefers-reduced-motion: no-preference)">
-<link rel="stylesheet" href="style.css?v=ocean-1">
+<link rel="stylesheet" href="style.css?v=vinyl-1">
 </head>
 <body id="top">
 <!-- Ocean surface and floating glass shapes -->
@@ -1426,75 +1364,93 @@
 </ol></div>
 </section>
 </div>
-<section aria-label="Technical skills" class="container skills-section section">
-<div class="skill-panel">
-<h2>Technical skills</h2>
-<div class="skills-motion">
-<div aria-label="Featured skills, changing automatically" class="skill-feature">
-<span aria-hidden="true" class="skill-spinner"><span>✦</span></span>
-<span class="skill-feature-name" id="skill-feature-name">Python</span>
-</div>
-<div aria-label="Skills you can select" class="skills-list">
-<div class="skill-group"><h3 class="skill-category">Languages</h3><div class="skill-group-chips">
-<button aria-pressed="true" class="skill-chip is-active" data-skill="Python" type="button">Python</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Java" type="button">Java</button>
-<button aria-pressed="false" class="skill-chip" data-skill="C" type="button">C</button>
-<button aria-pressed="false" class="skill-chip" data-skill="C++" type="button">C++</button>
-<button aria-pressed="false" class="skill-chip" data-skill="C#" type="button">C#</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Bash" type="button">Bash</button>
-<button aria-pressed="false" class="skill-chip" data-skill="HTML" type="button">HTML</button>
-<button aria-pressed="false" class="skill-chip" data-skill="CSS" type="button">CSS</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Smalltalk" type="button">Smalltalk</button>
-<button aria-pressed="false" class="skill-chip" data-skill="SQL" type="button">SQL</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Haskell" type="button">Haskell</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Rust" type="button">Rust</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Clojure" type="button">Clojure</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Erlang" type="button">Erlang</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Prolog" type="button">Prolog</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Lisp" type="button">Lisp</button>
-</div></div>
-<div class="skill-group"><h3 class="skill-category">AI &amp; data</h3><div class="skill-group-chips">
-<button aria-pressed="false" class="skill-chip" data-skill="Machine Learning" type="button">Machine Learning</button>
-<button aria-pressed="false" class="skill-chip" data-skill="NLP" type="button">NLP</button>
-<button aria-pressed="false" class="skill-chip" data-skill="RAG" type="button">RAG</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Semantic Matching" type="button">Semantic Matching</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Semantic Search" type="button">Semantic Search</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Sentence Transformers" type="button">Sentence Transformers</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Hugging Face" type="button">Hugging Face</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Llama 3.1" type="button">Llama 3.1</button>
-<button aria-pressed="false" class="skill-chip" data-skill="NumPy" type="button">NumPy</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Pandas" type="button">Pandas</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Jupyter" type="button">Jupyter</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Power BI" type="button">Power BI</button>
-<button aria-pressed="false" class="skill-chip" data-skill="IBM Cognos Analytics" type="button">IBM Cognos Analytics</button>
-</div></div>
-<div class="skill-group"><h3 class="skill-category">Tools &amp; platforms</h3><div class="skill-group-chips">
-<button aria-pressed="false" class="skill-chip" data-skill="Flutter" type="button">Flutter</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Firebase" type="button">Firebase</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Linux" type="button">Linux</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Git" type="button">Git</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Ansible" type="button">Ansible</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Microsoft Azure" type="button">Microsoft Azure</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Microsoft Sentinel" type="button">Microsoft Sentinel</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Azure Sandbox" type="button">Azure Sandbox</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Windows 10" type="button">Windows 10</button>
-</div></div>
-<div class="skill-group"><h3 class="skill-category">Microsoft Office</h3><div class="skill-group-chips">
-<button aria-pressed="false" class="skill-chip" data-skill="Excel" type="button">Excel</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Word" type="button">Word</button>
-<button aria-pressed="false" class="skill-chip" data-skill="PowerPoint" type="button">PowerPoint</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Visio" type="button">Visio</button>
-<button aria-pressed="false" class="skill-chip" data-skill="SharePoint" type="button">SharePoint</button>
-</div></div>
-<div class="skill-group"><h3 class="skill-category">Ways of working</h3><div class="skill-group-chips">
-<button aria-pressed="false" class="skill-chip" data-skill="Agile" type="button">Agile</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Scrum" type="button">Scrum</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Kanban" type="button">Kanban</button>
-<button aria-pressed="false" class="skill-chip" data-skill="Trello" type="button">Trello</button>
-</div></div>
-</div>
-</div>
-</div>
+<section id="skills" class="container skills-section section" aria-labelledby="skills-title">
+  <div class="vinyl-player" aria-labelledby="skills-title" role="group">
+    <div class="vinyl-platter" aria-hidden="true">
+      <div class="vinyl-record"><span class="vinyl-label"></span></div>
+      <span class="vinyl-arm"></span>
+    </div>
+    <div class="vinyl-copy">
+      <h2 class="section-title" id="skills-title">Technical skills</h2>
+      <p class="vinyl-category" hidden></p>
+      <p class="vinyl-name">
+        <span class="vinyl-current" aria-hidden="true"></span>
+        <svg class="vinyl-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+        <select class="vinyl-picker" aria-label="Choose a technical skill">
+            <optgroup label="Languages">
+              <option>Python</option>
+              <option>Java</option>
+              <option>C</option>
+              <option>C++</option>
+              <option>C#</option>
+              <option>Bash</option>
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>Smalltalk</option>
+              <option>SQL</option>
+              <option>Haskell</option>
+              <option>Rust</option>
+              <option>Clojure</option>
+              <option>Erlang</option>
+              <option>Prolog</option>
+              <option>Lisp</option>
+            </optgroup>
+            <optgroup label="AI &amp; data">
+              <option>Machine Learning</option>
+              <option>NLP</option>
+              <option>RAG</option>
+              <option>Semantic Matching</option>
+              <option>Semantic Search</option>
+              <option>Sentence Transformers</option>
+              <option>Hugging Face</option>
+              <option>Llama 3.1</option>
+              <option>NumPy</option>
+              <option>Pandas</option>
+              <option>Jupyter</option>
+              <option>Power BI</option>
+              <option>IBM Cognos Analytics</option>
+            </optgroup>
+            <optgroup label="Tools &amp; platforms">
+              <option>Flutter</option>
+              <option>Firebase</option>
+              <option>Linux</option>
+              <option>Git</option>
+              <option>Ansible</option>
+              <option>Microsoft Azure</option>
+              <option>Microsoft Sentinel</option>
+              <option>Azure Sandbox</option>
+              <option>Windows 10</option>
+            </optgroup>
+            <optgroup label="Microsoft Office">
+              <option>Excel</option>
+              <option>Word</option>
+              <option>PowerPoint</option>
+              <option>Visio</option>
+              <option>SharePoint</option>
+            </optgroup>
+            <optgroup label="Ways of working">
+              <option>Agile</option>
+              <option>Scrum</option>
+              <option>Kanban</option>
+              <option>Trello</option>
+            </optgroup>
+        </select>
+      </p>
+      <div class="vinyl-controls" hidden>
+        <button type="button" data-action="previous" aria-label="Previous skill" title="Previous skill">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5h2v14H5zm13 0v14L8 12z"/></svg>
+        </button>
+        <button type="button" data-action="playback" aria-label="Pause rotation" title="Pause rotation">
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m7 4 13 8-13 8z"/></svg>
+        </button>
+        <button type="button" data-action="next" aria-label="Next skill" title="Next skill">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 5h2v14h-2zM6 5l10 7-10 7z"/></svg>
+        </button>
+      </div>
+      <span class="vinyl-status" role="status"></span>
+    </div>
+  </div>
 </section>
 <section aria-labelledby="offline-title" class="offline-section section" id="offline">
 <div class="container">
@@ -1655,39 +1611,6 @@
     sync();
   })();
 
-  // The skills change on their own; clicking a chip manually selects it too.
-  (() => {
-    const panel = document.querySelector('.skill-panel');
-    const chips = [...document.querySelectorAll('.skill-chip')];
-    const featured = document.getElementById('skill-feature-name');
-    if (!chips.length || !featured) return;
-    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let current = 0, visible = false, timer = null;
-    const selectSkill = i => {
-      current = (i + chips.length) % chips.length;
-      featured.textContent = chips[current].dataset.skill;
-      featured.classList.remove('flip-in');
-      if (!motion.matches) { void featured.offsetWidth; featured.classList.add('flip-in'); }
-      chips.forEach((chip,j) => {
-        chip.classList.toggle('is-active', j === current);
-        chip.setAttribute('aria-pressed',j === current ? 'true' : 'false');
-      });
-    };
-    const stop = () => { clearInterval(timer); timer = null; };
-    const play = () => {
-      stop();
-      if (!visible || document.hidden || motion.matches) return;
-      timer = setInterval(() => selectSkill(current + 1), 2300);
-    };
-    chips.forEach((chip,i) => chip.addEventListener('click', () => {selectSkill(i);play();}));
-    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; play(); }, {threshold:.15}).observe(panel);
-    document.addEventListener('visibilitychange', play);
-    motion.addEventListener?.('change', play);
-    panel.addEventListener('focusin', stop);
-    panel.addEventListener('focusout', play);
-  })();
-
-
   // Tiny cat companion: gently follows your pointer on desktop and bobs when you scroll.
   (() => {
     const cat = document.querySelector('.floating-cat');
@@ -1735,6 +1658,7 @@
   })();
 
 </script>
+<script src="skills-player.js?v=1"></script>
 <script src="journey.js?v=fun-16"></script>
 <script src="playful-motion.js?v=ocean-1"></script>
 </body>

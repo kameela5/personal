@@ -4,7 +4,7 @@ body{font-family:var(--font-body)}
 .intro-title .intro-script{font-family:var(--font-body);font-weight:400;letter-spacing:-.065em;text-shadow:none}
 .intro-title .intro-script{font-size:clamp(75px,9vw,130px);animation:none;clip-path:none}
 .intro-title .intro-small{font-family:var(--font-body)}
-.section-title,.project-card h3,.skill-panel h2{font-family:var(--font-body);font-weight:400;letter-spacing:-.045em}
+.section-title,.project-card h3{font-family:var(--font-body);font-weight:400;letter-spacing:-.045em}
 .journey-card h3{font-family:var(--font-body);font-weight:600;font-size:18px;letter-spacing:-.03em}
 .site-header .logo{font-family:var(--font-body);font-size:27px;font-weight:600}
 @media(max-width:760px){.journey-card h3{font-size:20px}.intro-title .intro-script{font-size:clamp(75px,20vw,115px)}}
@@ -72,7 +72,7 @@ body{font-family:var(--font-body)}
   .ambient-blob{filter:blur(28px);will-change:transform}
   .ambient-blob.b3,.ambient-blob.b4{display:none}
   .ambient-scene::after{filter:none}
-  .project-card,.skill-panel,.journey-card,.contact-panel,.about-section,.offline-section{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .project-card,.journey-card,.contact-panel,.about-section,.offline-section{backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 /* One visual design on every screen; only layout and scale respond to available space. */
 .intro-destination .availability{border:0;background:none;box-shadow:none;border-radius:0;padding:0;font-size:clamp(9px,.85vw,11px);font-weight:500;letter-spacing:.03em;color:var(--muted);gap:7px}
@@ -143,7 +143,7 @@ h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script
 .section,.offline-section{padding-block:42px}
 section{scroll-margin-top:84px}
 .section-kicker{font-size:9px;letter-spacing:.16em;margin-bottom:8px}
-.section-title,.skill-panel h2{font-family:var(--portfolio-serif);font-size:38px;line-height:1.12;letter-spacing:-.025em;margin-bottom:12px}
+.section-title{font-family:var(--portfolio-serif);font-size:38px;line-height:1.12;letter-spacing:-.025em;margin-bottom:12px}
 .section-kicker::before{content:none}
 .section-header{margin-bottom:20px}
 .about-section{grid-template-columns:190px 1fr;gap:35px;align-items:start}
@@ -172,15 +172,6 @@ section{scroll-margin-top:84px}
 .journey-section .journey-list::before{top:31px}
 .journey-section .journey-stop::before{top:24px}
 .journey-section .journey-stop::after{top:30px}
-.skills-section{padding-top:10px}
-.skill-panel{padding:24px;grid-template-columns:170px 1fr;gap:22px;border-radius:16px}
-.skill-panel h2{font-size:30px;margin-bottom:0}
-.skills-motion{gap:12px}
-.skill-feature{min-height:42px;padding:8px 12px;border-radius:10px}
-.skill-spinner{width:25px;height:25px;font-size:17px}
-.skill-feature-name{font-size:20px}
-.skills-list{gap:7px}
-.skills-list .skill-chip{padding:7px 11px;font-size:11px}
 .offline-heading{margin-bottom:18px}
 .offline-intro{max-width:720px;font-size:13px;line-height:1.7}
 .offline-slide img{aspect-ratio:16/10}
@@ -206,10 +197,6 @@ footer{padding-block:20px}
 .journey-section .journey-card h3{font-size:25px;margin-bottom:5px}
 .journey-section .journey-company{font-size:11px;margin-bottom:8px}
 .journey-section .journey-description{font-size:13px;line-height:1.7}
-.skill-panel{padding:20px}
-.skill-panel h2{font-size:29px;margin-bottom:15px}
-.skill-feature-hint{display:none}
-.skills-section{padding-top:6px}
 .contact-section{padding-top:6px;padding-bottom:30px}
 .contact-panel{padding:27px 20px}
 .contact-panel .section-title{font-size:33px}
@@ -336,21 +323,10 @@ footer{padding-block:20px}
   .intro-destination>.site-header{background:transparent}
 }
 @media(prefers-reduced-motion:reduce){.ambient-scene .ambient-blob{animation:none!important}.ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{will-change:auto}}
-/* Group the expanded toolbox so its skills remain quick to scan. */
-.skills-list{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
-.skill-group{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;min-width:0}
-.skill-category{font-family:var(--font-body);font-size:10px;line-height:1.5;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0}
-.skill-group-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
-.skills-list .skill-chip{max-width:100%;white-space:normal;line-height:1.5;text-align:left}
-.skill-feature-name{overflow-wrap:anywhere}
-.skill-feature-name:empty{display:none}
-.skill-feature-name{font-size:clamp(16px,1.6vw,20px)}
-
 /* A softer, more expressive display face; body text keeps its clear reading rhythm. */
-h1,h2,h3,.section-title,.project-card h3,.skill-panel h2,.journey-section .journey-card h3,.intro-title .intro-script,.intro-title .intro-small,.site-header .logo,.art-caption{font-family:var(--portfolio-serif);font-optical-sizing:auto;font-variation-settings:"SOFT" 65,"WONK" 1}
+h1,h2,h3,.section-title,.project-card h3,.journey-section .journey-card h3,.intro-title .intro-script,.intro-title .intro-small,.site-header .logo,.art-caption{font-family:var(--portfolio-serif);font-optical-sizing:auto;font-variation-settings:"SOFT" 65,"WONK" 1}
 .intro-destination .intro-script{font-weight:500;letter-spacing:-.045em}
 .section-title,.project-card h3,.journey-section .journey-card h3{letter-spacing:-.035em}
-.skill-category{font-family:var(--font-body);font-variation-settings:normal}
 
 /* The glossy greeting writes on and dissolves into the introduction. */
 .welcome {
@@ -583,7 +559,7 @@ main > .contact-section::before { content: none; }
 
 .work-layout .project-card,
 .work-layout .journey-card,
-#portfolio .skill-panel,
+#portfolio .vinyl-player,
 #portfolio .contact-panel.has-form {
   background: var(--ocean-glass);
   border: 1px solid var(--ocean-rule);
@@ -602,7 +578,7 @@ main > .contact-section::before { content: none; }
 
   .work-layout .project-card,
   .work-layout .journey-card,
-  #portfolio .skill-panel,
+  #portfolio .vinyl-player,
   #portfolio .contact-panel.has-form {
     background: #0e3153cf;
     -webkit-backdrop-filter: blur(15px) saturate(1.2);
@@ -612,7 +588,6 @@ main > .contact-section::before { content: none; }
 
 .work-layout .project-card:is(:hover, :focus-within),
 .work-layout .journey-card:is(:hover, :focus-within),
-#portfolio .skill-panel:is(:hover, :focus-within),
 #portfolio .contact-panel.has-form:is(:hover, :focus-within) {
   background: var(--ocean-glass-raised) !important;
   border-color: #b9e2ff9c !important;
@@ -646,28 +621,6 @@ main > .contact-section::before { content: none; }
   box-shadow: 0 0 0 4px #b4ddff30;
 }
 .journey-section .journey-stop::after { background: var(--ocean-rule); }
-
-#portfolio .skill-feature,
-#portfolio .skill-feature:hover {
-  border-color: var(--ocean-rule);
-  background: #75b8ed20 !important;
-}
-#portfolio .skill-spinner {
-  color: var(--ocean-link);
-  border-color: #a2d6ff6e;
-}
-#portfolio .skill-chip {
-  color: var(--ocean-ink);
-  border-color: #aedaff30;
-  background: #79bae626;
-}
-#portfolio .skill-chip:is(.is-active, :hover, :focus-visible) {
-  color: #082642 !important;
-  border-color: #a8d8ff !important;
-  background: #a8d8ff !important;
-  box-shadow: none;
-  transform: none;
-}
 
 #portfolio .offline-slide img,
 #portfolio .offline-slide:is(:hover, :focus-within) img {
@@ -748,4 +701,264 @@ body#top .footer-inner { color: var(--ocean-muted); }
 }
 @media (prefers-reduced-motion: reduce) {
   .ambient-scene .water-ripple { display: none; }
+}
+
+/* The record keeps the current skill visible while the player is paused. */
+.vinyl-player {
+  display: grid;
+  grid-template-columns: minmax(160px, 246px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 6vw, 72px);
+  padding: clamp(22px, 4vw, 48px);
+}
+
+.vinyl-platter {
+  position: relative;
+  display: grid;
+  place-items: center start;
+  aspect-ratio: 1.12;
+  border: 1px solid #8cb5d576;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #274e70, #122c48 55%, #0d223c);
+  box-shadow: inset 0 1px 0 #d8edff47, 0 9px 18px #030e26a3;
+}
+
+.vinyl-record {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 79%;
+  margin-inline-start: 8%;
+  aspect-ratio: 1;
+  border: 1px solid #467392;
+  border-radius: 50%;
+  background:
+    conic-gradient(from -12deg, transparent 7%, #b0e1ff2c 13%, transparent 23%, transparent 48%, #86c4fa28 55%, transparent 65%),
+    repeating-radial-gradient(circle, #33607b40 0 1px, transparent 1px 3px),
+    radial-gradient(circle at 47% 45%, #183b53, #071827 80%);
+  box-shadow: inset 0 0 0 4px #061623, 0 3px 6px #020a12bc;
+}
+
+.vinyl-record::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  border: 1px solid #7baaab28;
+  border-right-color: #bce6ff66;
+  border-bottom-color: #bce6ff40;
+  animation: vinyl-spin 9s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-label {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32%;
+  aspect-ratio: 1;
+  border: 1px solid #c4e8ff;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 54%, #1642675e 55% 57%, transparent 58%),
+    conic-gradient(from -40deg, #ceeaff, #779fc7, #a9cff0, #547fa9, #ceeaff);
+  box-shadow: 0 0 0 2px #051b31;
+  animation: vinyl-spin 9s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-label::before {
+  content: '';
+  position: absolute;
+  inset: 22% 18% auto;
+  height: 21%;
+  background:
+    linear-gradient(#214968, #214968) center 15% / 68% 15% no-repeat,
+    linear-gradient(#214968, #214968) center 70% / 44% 15% no-repeat;
+}
+
+.vinyl-label::after {
+  content: '';
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #15324c;
+  box-shadow: 0 1px 1px #fff8, inset 0 1px 0 #020c17;
+}
+
+.vinyl-arm {
+  position: absolute;
+  inset-block-start: 18%;
+  inset-inline-end: 12%;
+  width: clamp(3px, .42vw, 5px);
+  height: 52%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #7da5c9, #d5eeff 48%, #628aaa);
+  box-shadow: 1px 3px 4px #030c18bc;
+  transform: rotate(22deg);
+  transform-origin: center top;
+  transition: transform .35s ease;
+}
+
+.vinyl-arm::before {
+  content: '';
+  position: absolute;
+  inset: -8% auto auto 50%;
+  width: clamp(11px, 1.5vw, 18px);
+  aspect-ratio: 1;
+  border: 1px solid #a7c9e5;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 34%, #d6ecff, #517b9d 68%, #294863);
+  transform: translateX(-50%);
+}
+
+.vinyl-arm::after {
+  content: '';
+  position: absolute;
+  inset: auto auto -4% 50%;
+  width: clamp(7px, .9vw, 11px);
+  height: clamp(9px, 1.1vw, 14px);
+  border-radius: 3px;
+  background: linear-gradient(90deg, #294c6a, #88aecf, #274663);
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.vinyl-player.is-playing .vinyl-record::before,
+.vinyl-player.is-playing .vinyl-label { animation-play-state: running; }
+.vinyl-player.is-playing .vinyl-arm { transform: rotate(36deg); }
+@keyframes vinyl-spin { to { transform: rotate(1turn); } }
+
+.vinyl-copy { min-width: 0; }
+.vinyl-copy .section-title {
+  margin-bottom: clamp(16px, 2vw, 24px);
+  font: 650 17px/1.2 var(--font-body);
+  letter-spacing: -.025em;
+}
+
+.vinyl-category {
+  margin: 0;
+  color: var(--ocean-link);
+  font: 670 11px/1.4 var(--font-body);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.vinyl-name {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-block-size: 2.24em;
+  width: min(100%, 16ch);
+  margin: 0 0 12px;
+  border-radius: 7px;
+  color: var(--ocean-ink);
+  font: 520 clamp(27px, 4vw, 49px)/1.12 var(--portfolio-serif);
+  letter-spacing: -.032em;
+}
+
+.vinyl-current {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.vinyl-chevron {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--ocean-link);
+}
+
+.vinyl-player[data-ready] .vinyl-picker {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.vinyl-picker { cursor: pointer; color-scheme: dark; }
+.vinyl-picker optgroup,
+.vinyl-picker option { background: #10324f; color: #edf7ff; }
+.vinyl-name:focus-within { outline: 2px solid #9ad5ff; outline-offset: 5px; }
+
+.vinyl-player:not([data-ready]) :is(.vinyl-current, .vinyl-chevron) { display: none; }
+.vinyl-player:not([data-ready]) .vinyl-picker {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--ocean-rule);
+  border-radius: 7px;
+  background: #10324f;
+  color: var(--ocean-ink);
+  font: 600 15px/1.2 var(--font-body);
+  letter-spacing: 0;
+}
+
+.vinyl-controls:not([hidden]) {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.vinyl-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #b8e0ff55;
+  border-radius: 50%;
+  background: #80bfff1c;
+  color: #d4eeff;
+  cursor: pointer;
+}
+
+.vinyl-controls button:nth-child(2) {
+  width: 49px;
+  height: 49px;
+  border-color: #c8e9ff;
+  background: #adddff;
+  color: #0b2948;
+}
+
+.vinyl-controls button:not(:disabled):hover { border-color: #a4d3fa; background: #80bfff45; }
+.vinyl-controls button:nth-child(2):not(:disabled):hover { background: #d3edff; }
+.vinyl-controls button:disabled { opacity: .6; cursor: default; }
+
+.vinyl-controls svg { width: 18px; height: 18px; }
+.vinyl-controls .icon-play,
+.vinyl-player.is-paused .icon-pause { display: none; }
+.vinyl-player.is-paused .icon-play { display: block; }
+
+.vinyl-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .vinyl-player {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+    justify-items: center;
+    gap: 17px;
+    padding: 22px;
+  }
+
+  .vinyl-platter { width: min(100%, 145px); border-radius: 12px; }
+  .vinyl-copy { width: 100%; }
+  .vinyl-copy .section-title { margin-bottom: 12px; }
+  .vinyl-name { justify-content: center; margin: 0 auto 12px; }
+  .vinyl-controls { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-record::before,
+  .vinyl-label { animation: none; }
+  .vinyl-arm { transition: none; }
 }
