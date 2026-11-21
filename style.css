@@ -1,31 +1,13 @@
-/* Scroll through the forest, into the clearing. */
-.forest-journey{height:340svh;background:#e9eaec;position:relative}.forest-stage{height:100svh;position:sticky;top:0;overflow:hidden;color:#f8f4db;background:#6d213c}#forest{width:100%;height:100%;display:block;position:absolute;inset:0}.forest-top{position:absolute;top:0;left:0;width:100%;padding:30px 4.5%;display:flex;align-items:center;justify-content:space-between;z-index:2}.forest-wordmark{font:italic 44px Georgia;letter-spacing:-5px}.forest-top>span{font-size:9px;letter-spacing:2.8px}.skip-forest{font-size:11px;border-bottom:1px solid #f8f4db66;padding-bottom:5px}.forest-invitation,.name-reveal{position:absolute;top:46%;left:50%;width:90%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;text-shadow:0 2px 40px #20362744;will-change:opacity,transform}.forest-invitation .eyebrow{font-size:9px;letter-spacing:3px}.forest-invitation h1{font:clamp(62px,7.8vw,125px)/.98 Georgia,serif;letter-spacing:-5px;margin:28px 0}.forest-invitation h1 em{font-weight:normal;color:#ece7c4}.forest-invitation>p{font-size:12px;letter-spacing:1px;margin-top:28px}.name-reveal{opacity:0;color:#f8f4db}.name-reveal h2{font:clamp(70px,14vw,210px)/1 Georgia,serif;letter-spacing:-.07em;margin:15px 0 22px;font-weight:normal}.name-reveal h2 span{color:#edc494}.name-reveal>p:not(.eyebrow){font-size:13px;letter-spacing:.5px}.forest-enter{display:inline-flex;align-items:center;gap:35px;border:1px solid #f8f4db77;border-radius:50px;padding:16px 25px;font-size:12px;margin-top:25px;pointer-events:auto;transition:background .2s}.forest-enter:hover{background:#f8f4db22}.journey-bottom{position:absolute;bottom:35px;left:4.5%;right:4.5%;display:flex;align-items:center;gap:25px;font-size:8px;letter-spacing:2px}.journey-track{width:120px;height:1px;background:#fff4;overflow:hidden}.journey-track span{display:block;width:0;height:100%;background:#f7eecb}.journey-number{margin-left:auto}.motion-toggle{position:absolute;right:4.5%;bottom:70px;border:0;background:transparent;color:inherit;font:9px var(--font-body);letter-spacing:1px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}.forest-journey~header{background:var(--paper)}@media(max-width:760px){.forest-journey{height:300svh}.forest-top{padding:25px 6%}.forest-top>span{font-size:7px;letter-spacing:1.3px;max-width:120px;text-align:center;line-height:1.7}.skip-forest{font-size:9px}.forest-invitation h1{letter-spacing:-3px;font-size:68px}.forest-invitation .eyebrow{font-size:7px;letter-spacing:1.7px}.name-reveal h2{font-size:23vw}.name-reveal>p:not(.eyebrow){font-size:11px;max-width:250px;line-height:1.8;margin:0 auto}.journey-bottom{left:6%;right:6%;gap:15px;font-size:7px;letter-spacing:1px}.journey-track{width:60px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.forest-journey{height:100svh}}
-
-/* Keep the supplied portfolio intact; unify its type with the scenic entrance. */
+/* Portfolio typography. */
 :root{--portfolio-serif:Georgia,Cambria,'Times New Roman',serif}
 body{font-family:var(--font-body)}
-.forest-journey{position:relative;z-index:2;scroll-margin-top:0}
-.forest-stage{color:#faf6f4}
-.forest-journey .eyebrow{color:inherit}
-.forest-invitation h1{color:#faf6f4;font-weight:400}
-.forest-invitation h1 em{color:#eebbb5}
-.forest-invitation>p{color:#faf6f4}
-.name-reveal h2{color:#faf6f4}
-.name-reveal h2 span{color:#eebbb5}
-.forest-top a{color:inherit}
-.name-reveal .forest-enter{color:#faf6f4}
-.intro-title .intro-script,.welcome-name{font-family:var(--font-body);font-weight:400;letter-spacing:-.065em;text-shadow:none}
+.intro-title .intro-script{font-family:var(--font-body);font-weight:400;letter-spacing:-.065em;text-shadow:none}
 .intro-title .intro-script{font-size:clamp(75px,9vw,130px);animation:none;clip-path:none}
 .intro-title .intro-small{font-family:var(--font-body)}
 .section-title,.project-card h3,.skill-panel h2{font-family:var(--font-body);font-weight:400;letter-spacing:-.045em}
 .journey-card h3{font-family:var(--font-body);font-weight:600;font-size:18px;letter-spacing:-.03em}
 .site-header .logo{font-family:var(--font-body);font-size:27px;font-weight:600}
-.hero-copy.arrive .intro-script{animation:serif-arrive .9s ease both}
-@keyframes serif-arrive{from{opacity:0;transform:translateY(20px);clip-path:inset(0 100% 0 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0)}}
-.forest-stage .motion-toggle{font-family:var(--font-body)}
 @media(max-width:760px){.journey-card h3{font-size:20px}.intro-title .intro-script{font-size:clamp(75px,20vw,115px)}}
-@media(prefers-reduced-motion:reduce){.hero-copy.arrive .intro-script{animation:none}.forest-journey{height:100svh}}
-.forest-stage .motion-toggle{right:auto;left:4.5%;bottom:72px}
 
 /* Text-led project cards. */
 .projects-grid .project-card{padding:32px;display:flex;flex-direction:column;border-top:3px solid #a16b7e}
@@ -35,16 +17,7 @@ body{font-family:var(--font-body)}
 .projects-grid .project-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.03em}
 @media(max-width:690px){.projects-grid .project-card{padding:26px}.projects-grid .project-card h3{font-size:32px}}
 
-/* A photographic dawn, with soft depth as you wander into the page. */
-.forest-invitation,.name-reveal{text-shadow:0 2px 35px #23101d88}
-.forest-invitation h1 em{color:#f6d9d6}
-/* The opening dissolves into the real introduction and only resets at the top. */
-.forest-journey{background:transparent}
-.forest-stage{background:transparent;isolation:isolate}
-.forest-stage>canvas,.forest-stage>.forest-top,.forest-stage>.forest-invitation,.forest-stage>.journey-bottom,.forest-stage>.motion-toggle{will-change:opacity}
-.forest-invitation h1{color:#fffaf3;text-shadow:0 2px 30px #43513966}
-.forest-invitation h1 em{color:#fff0e3}
-.intro-destination{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;visibility:hidden;color:var(--ink)}
+.intro-destination{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;color:var(--ink)}
 .intro-destination>.site-header{position:relative;flex:none;background:transparent;backdrop-filter:none;z-index:2}
 .intro-destination>.hero{flex:1;min-height:0;padding-top:25px;padding-bottom:35px;gap:30px;align-content:center}
 .intro-destination .hero-copy{align-self:center}
@@ -131,13 +104,12 @@ body{font-family:var(--font-body)}
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-latin-full-italic.woff2') format('woff2');font-style:italic;font-weight:300 700;font-display:swap}
 @font-face{font-family:'Manrope';src:url('fonts/manrope-latin-wght-normal.woff2') format('woff2');font-style:normal;font-weight:200 800;font-display:swap}
 :root{--portfolio-serif:'Fraunces',Palatino,Georgia,serif;--font-body:'Manrope',system-ui,sans-serif}
-body,button,input,textarea,select,.forest-stage .motion-toggle{font-family:var(--font-body)}
-h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script,.forest-invitation h1,.name-reveal h2,.forest-wordmark,.art-caption{font-family:var(--portfolio-serif)}
-.intro-destination .intro-script,.forest-invitation h1{font-weight:500}
+body,button,input,textarea,select{font-family:var(--font-body)}
+h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script,.art-caption{font-family:var(--portfolio-serif)}
+.intro-destination .intro-script{font-weight:500}
 .hero-lead,.about-body,.section-summary{font-weight:400}
 .nav,.btn,.section-kicker,.eyebrow{font-weight:500}
 .intro-destination .intro-script{letter-spacing:-.045em}
-.forest-invitation h1{letter-spacing:-.035em}
 /* A single vertical journey, with the full palette flowing through its spine. */
 .journey-section.container{width:min(860px,calc(100% - 44px))}
 .journey-section .journey-heading{display:block;margin-bottom:20px}
@@ -167,8 +139,6 @@ h1,h2,h3,.site-header .logo,.intro-title .intro-small,.intro-title .intro-script
 @media(max-width:450px){.journey-section .journey-stop{padding-left:38px}.journey-section .journey-stop::after{width:15px}.journey-section .journey-card{padding:23px 20px 25px}.journey-section .journey-card h3{font-size:27px}.journey-section .journey-description{font-size:13px}.journey-section .journey-date{display:block}.journey-section .journey-year{margin:9px 0 0}.journey-note{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.journey-section .journey-list::before{animation:none;background-size:100% 100%}}
 /* Compact, direct presentation for scanning experience and project work. */
-.forest-journey{height:160svh}
-.forest-top{padding-top:22px;padding-bottom:22px}
 .container,.journey-section.container{width:min(1060px,calc(100% - 44px))}
 .section,.offline-section{padding-block:42px}
 section{scroll-margin-top:84px}
@@ -244,13 +214,6 @@ footer{padding-block:20px}
 .contact-panel{padding:27px 20px}
 .contact-panel .section-title{font-size:33px}
 }
-@media(prefers-reduced-motion:reduce){.forest-journey{height:100svh}}
-/* A quiet welcome, followed by the personal introduction. */
-.forest-top{justify-content:flex-end}
-.forest-invitation h1{font-size:clamp(68px,10vw,136px);line-height:1;letter-spacing:-.04em;margin:0 0 16px}
-.forest-invitation>p{font-family:var(--portfolio-serif);font-style:italic;font-size:clamp(24px,3vw,36px);font-weight:400;line-height:1.2;letter-spacing:0;margin:0;color:#fff0e3}
-.journey-bottom{justify-content:center}
-@media(max-width:690px){.forest-invitation h1{margin-bottom:12px}.forest-invitation>p{font-size:26px}}
 /* More lively background details, with a small bounce and unhurried continuous spin. */
 .ambient-scene .chrome-charm,.ambient-scene .chrome-bubble{
   --bob-time:5.5s;--turn-time:18s;--motion-delay:-2s;
@@ -349,7 +312,56 @@ footer{padding-block:20px}
 .skill-feature-name{font-size:clamp(16px,1.6vw,20px)}
 
 /* A softer, more expressive display face; body text keeps its clear reading rhythm. */
-h1,h2,h3,.section-title,.project-card h3,.skill-panel h2,.journey-section .journey-card h3,.intro-title .intro-script,.intro-title .intro-small,.forest-invitation h1,.forest-invitation>p,.site-header .logo,.art-caption{font-family:var(--portfolio-serif);font-optical-sizing:auto;font-variation-settings:"SOFT" 65,"WONK" 1}
-.intro-destination .intro-script,.forest-invitation h1{font-weight:500;letter-spacing:-.045em}
+h1,h2,h3,.section-title,.project-card h3,.skill-panel h2,.journey-section .journey-card h3,.intro-title .intro-script,.intro-title .intro-small,.site-header .logo,.art-caption{font-family:var(--portfolio-serif);font-optical-sizing:auto;font-variation-settings:"SOFT" 65,"WONK" 1}
+.intro-destination .intro-script{font-weight:500;letter-spacing:-.045em}
 .section-title,.project-card h3,.journey-section .journey-card h3{letter-spacing:-.035em}
 .skill-category{font-family:var(--font-body);font-variation-settings:normal}
+
+/* A softly lit handwritten greeting that dissolves into the live introduction. */
+@font-face {
+  font-family: 'Allura';
+  src: url('fonts/allura-latin-normal.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.welcome {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .welcome {
+    position: absolute;
+    z-index: 4;
+    inset: 0 0 auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(ellipse at 50% 46%, #a56d8a 0%, #724760 37%, transparent 73%),
+      linear-gradient(140deg, #241c33, #46263d 62%, #302438);
+    animation: welcome-dissolve 2.45s ease-in-out both;
+  }
+  .welcome-word {
+    padding: .1em .28em;
+    color: #fff7f4;
+    font: 400 clamp(6rem, 23vw, 15rem)/1 'Allura', cursive;
+    text-shadow: 0 0 .12em #ffc7da, 0 0 .32em #ffd3ec99;
+    mask-image: linear-gradient(105deg, #000 40%, transparent 58%);
+    mask-size: 260% 100%;
+    mask-repeat: no-repeat;
+    animation: welcome-write 1.12s cubic-bezier(.36, .07, .32, 1) both;
+  }
+  :root:has(:target, :focus-visible) .welcome {
+    visibility: hidden !important;
+  }
+}
+@keyframes welcome-write {
+  from { mask-position: 100% 0; opacity: 0; }
+  20% { opacity: 1; }
+  to { mask-position: 0 0; opacity: 1; }
+}
+@keyframes welcome-dissolve {
+  0%, 61% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}

@@ -139,13 +139,6 @@
     .art-spark { z-index:3; top:8%; left:8%; }
     @keyframes handwritten-reveal { from {clip-path:inset(0 100% 0 0);opacity:.6} to {clip-path:inset(0 0 0 0);opacity:1} }
     @keyframes photo-arrive { from { opacity:0;transform:translateY(16px) rotate(-4deg) scale(.98)} to {opacity:1;transform:translateY(0) rotate(-2deg) scale(1)} }
-    .welcome { position:fixed;z-index:99;inset:0;display:grid;place-items:center;background:var(--sand);pointer-events:none;animation:welcome-fade 2.55s ease forwards; }
-    .welcome-inside { text-align:center; padding:30px; }
-    .welcome-small { font-size:12px; font-weight:600; color:var(--sage); letter-spacing:.25em; text-transform:uppercase; margin:0 0 6px;animation:welcome-small .8s ease both; }
-    .welcome-name { font-family:var(--portfolio-serif);font-size:clamp(95px,16vw,200px);color:var(--blue);font-weight:500;letter-spacing:-.07em;line-height:1.1;clip-path:inset(0 100% 0 0);animation:handwritten-reveal 1.25s cubic-bezier(.2,.65,.2,1) .2s both; }
-    .welcome-tail { font-size:13px;letter-spacing:.07em;color:var(--muted);margin-top:10px;animation:welcome-small .7s ease .75s both; }
-    @keyframes welcome-small { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:translateY(0)} }
-    @keyframes welcome-fade {0%,74%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}100%{opacity:0;visibility:hidden} }
     @media(max-width:690px) {
       .intro-title .intro-small { font-size:36px; }
       .intro-title .intro-script { font-size:clamp(90px,19vw,136px);animation-delay:2.5s; }
@@ -154,7 +147,6 @@
       .intro-overline {font-size:10px;}
     }
     @media(prefers-reduced-motion:reduce) {
-      .welcome { display:none; }
       .intro-title .intro-script { clip-path:none;animation:none; }
       .hero-photo {animation:none;}
       .art-frame:hover {transform:none;}
@@ -462,7 +454,6 @@
     }
     footer { border-top: 1px solid rgba(89,0,4,.085); background:transparent; }
     .site-header { background:rgba(233,234,236,.62); }
-    .welcome { background:linear-gradient(120deg, #e9eaec, #f3dad4 53%, #dfedf0); }
 
     /* The original photo is 4:3; match its natural proportions exactly. */
     .hero {
@@ -765,8 +756,7 @@
 
 
     /* ---- Playful handwritten intro + whimsical extras ---- */
-    .intro-title .intro-script,
-    .welcome-name {
+    .intro-title .intro-script {
       font-family:var(--portfolio-serif);
       font-weight: 700;
       letter-spacing: -0.045em;
@@ -776,7 +766,6 @@
       font-size: clamp(92px, 10.3vw, 148px);
       line-height: .92;
     }
-    .welcome-name { letter-spacing: -0.05em; }
     .section-kicker::before {
       content: '✦';
       display: inline-block;
@@ -1263,7 +1252,8 @@
 </style>
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=fun-16">
+<link rel="preload" href="fonts/allura-latin-normal.woff2" as="font" type="font/woff2" media="(prefers-reduced-motion: no-preference)" crossorigin>
+<link rel="stylesheet" href="style.css?v=hello-1">
 </head>
 <body id="top">
 <!-- Ambient lava-glass scene -->
@@ -1290,12 +1280,11 @@
 </div>
 <!-- /Ambient lava-glass scene -->
 
-</div>
-<section class="forest-journey" aria-label="Hello. Scroll to enter Kameela’s portfolio."><div class="forest-stage"><canvas id="forest" aria-hidden="true"></canvas><div class="forest-top"><a href="#intro" class="skip-forest">Skip</a></div><div class="forest-invitation"><h1>Hello</h1><p>Wander into my world</p></div><div class="journey-bottom" aria-hidden="true"><div class="journey-track"><span></span></div></div><button class="motion-toggle" aria-pressed="false">pause motion</button></div></section>
+<div class="intro-destination">
 <header class="site-header">
 <div class="container header-inner">
 <a aria-label="Kameela Abdi, back to top" class="logo" href="#top">kameela<span>.</span></a>
-<nav aria-label="Main navigation" class="nav">
+<nav aria-label="Introduction navigation" class="nav">
 <a href="#about">about</a>
 <a href="#projects">projects</a>
 <a href="#experience">experience</a>
@@ -1303,7 +1292,6 @@
 </nav>
 </div>
 </header>
-<main id="portfolio">
 <div class="container hero" id="intro">
 <div class="hero-copy">
 <span class="availability">Kameela Abdi · Toronto</span>
@@ -1323,6 +1311,22 @@
 <div aria-hidden="true" class="art-caption">create with intention.</div>
 </div>
 </div>
+<div class="welcome" aria-hidden="true">
+  <span class="welcome-word">Hello</span>
+</div>
+</div>
+<header class="site-header">
+<div class="container header-inner">
+<a aria-label="Kameela Abdi, back to top" class="logo" href="#top">kameela<span>.</span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="#about">about</a>
+<a href="#projects">projects</a>
+<a href="#experience">experience</a>
+<a href="#contact">contact</a>
+</nav>
+</div>
+</header>
+<main id="portfolio">
 <section class="container about-section section" id="about">
 <div>
 <p class="section-kicker">01 / background</p>
@@ -1696,7 +1700,6 @@
   })();
 
 </script>
-<script src="forest.js?v=fun-16"></script>
 <script src="journey.js?v=fun-16"></script>
 </body>
 </html>
