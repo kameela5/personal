@@ -99,6 +99,9 @@
     .project-card h3 { font-size:24px; letter-spacing:-.04em; font-weight:660; color:var(--deep); margin:0 0 10px; }
     .project-card p { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:18px; }
     .project-foot { font-size:12px; color:var(--blue); font-weight:690; }
+    .rooted-preview { display:block; margin-bottom:18px; padding:10px; border:1px solid var(--line); border-radius:12px; background:#f7f1e3; }
+    .rooted-preview img { display:block; width:100%; height:auto; }
+    .rooted-demo-link { align-self:flex-start; margin-top:16px; min-height:44px; }
     .experience-grid { display:grid; grid-template-columns:.7fr 1.3fr; gap:65px; }
     .experience-grid .section-title { max-width:370px; }
     .timeline-item { display:grid; grid-template-columns:115px 1fr; gap:19px; padding:24px 0; border-bottom:1px solid var(--line); }
@@ -1343,7 +1346,11 @@
 <h3 id="work-card-1-title">Rooted</h3>
 <div class="project-meta"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Semantic matching</span></div>
 <p>Matches newcomers’ skills to <strong>516 Canadian occupations</strong> using semantic matching and Sentence Transformers. Uses RAG for career-path recommendations.</p>
+<a class="rooted-preview" href="https://rooted-careers.vercel.app/#demo" target="_blank" rel="noopener noreferrer">
+<img src="images/rooted-career-matches.webp" width="1120" height="401" loading="lazy" decoding="async" alt="Rooted demo results for a restaurant worker showing Cook, Chef, and Food service supervisor matches"/>
+</a>
 <div class="project-foot">Hugging Face · Sentence Transformers · Llama 3.1</div>
+<a class="btn btn-primary rooted-demo-link" href="https://rooted-careers.vercel.app/" target="_blank" rel="noopener noreferrer">Try Rooted <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
 </article>
 </div>
 </div>
