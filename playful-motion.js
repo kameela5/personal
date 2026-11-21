@@ -1,13 +1,23 @@
 (() => {
   const scene = document.querySelector('.ambient-scene');
   const letter = document.querySelector('.name-letter');
+  const ripple = scene.querySelector('.water-ripple');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let pointerX = 0;
   let pointerY = 0;
   let frame = 0;
+  let lastDepth;
+  let rippleAnimation;
 
   function paint() {
     frame = 0;
+    const range = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const depth = Math.min(1, Math.max(0, scrollY / range)).toFixed(3);
+    if (depth !== lastDepth) {
+      scene.style.setProperty('--water-depth', depth);
+      lastDepth = depth;
+    }
+    if (reducedMotion.matches) return;
     const scrollOffset = Math.sin(window.scrollY / 350) * 18;
     scene.style.setProperty('--scene-x', `${pointerX * 25}px`);
     scene.style.setProperty('--scene-y', `${pointerY * 20 + scrollOffset}px`);
@@ -16,7 +26,7 @@
   }
 
   function requestPaint() {
-    if (!frame && !reducedMotion.matches) frame = requestAnimationFrame(paint);
+    if (!frame) frame = requestAnimationFrame(paint);
   }
 
   function resetPointer() {
@@ -34,6 +44,22 @@
   document.documentElement.addEventListener('pointerleave', resetPointer);
   window.addEventListener('blur', resetPointer);
   window.addEventListener('scroll', requestPaint, { passive: true });
+  window.addEventListener('resize', requestPaint);
+  new ResizeObserver(requestPaint).observe(document.body);
+  window.addEventListener('pageshow', requestPaint);
+
+  // Let a tap on open water send a short-lived ring across the surface.
+  document.addEventListener('click', event => {
+    if (reducedMotion.matches || !event.detail || event.target.closest('a,button,input,textarea,select,label,article,form')) return;
+    ripple.style.left = `${event.clientX}px`;
+    ripple.style.top = `${event.clientY}px`;
+    rippleAnimation?.cancel();
+    rippleAnimation = ripple.animate([
+      { transform:'translate(-50%, -50%) scale(.15)', opacity:0 },
+      { opacity:.7, offset:.14 },
+      { transform:'translate(-50%, -50%) scale(1.6)', opacity:0 },
+    ], { duration:1050, easing:'ease-out' });
+  });
 
   function playLetter() {
     if (reducedMotion.matches) return;
@@ -47,14 +73,14 @@
     if (reducedMotion.matches) {
       cancelAnimationFrame(frame);
       frame = 0;
+      rippleAnimation?.cancel();
       letter.classList.remove('is-falling');
       scene.style.removeProperty('--scene-x');
       scene.style.removeProperty('--scene-y');
       scene.style.removeProperty('--scene-tilt-x');
       scene.style.removeProperty('--scene-tilt-y');
-    } else {
-      requestPaint();
     }
+    requestPaint();
   }
 
   letter.addEventListener('click', playLetter);
